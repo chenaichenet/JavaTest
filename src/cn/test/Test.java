@@ -6,7 +6,7 @@
  * History:
  * notes：
  */
-package cn.test.Reflection;
+package cn.test;
 
 public class Test{
     public static void main(String[] args) throws Exception {

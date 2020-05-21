@@ -101,12 +101,12 @@ public class RegularDemo {
 
         /*自定义例子，测试split*/
 //        String a="a.b.c.d.e";
-////        String b="afghi";
-////        String resuls[]=a.split("\\.");
-////        int num[]={1,2,3,4,9};
-////        for (String s:resuls){
-////            System.out.print(s+"、");
-////        }
+//        String b="afghi";
+//        String resuls[]=a.split("\\.");
+//        int num[]={1,2,3,4,9};
+//        for (String s:resuls){
+//            System.out.print(s+"、");
+//        }
     }
     /*1*/
 //    public static boolean isNumber(String str){

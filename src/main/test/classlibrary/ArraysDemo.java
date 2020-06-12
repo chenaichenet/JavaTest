@@ -6,7 +6,7 @@
  * History:
  * notes：
  */
-package main.test.ClassLibrary;
+package main.test.classlibrary;
 
 import java.util.Arrays;
 

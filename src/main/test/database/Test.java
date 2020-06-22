@@ -1,5 +1,5 @@
 /**
- * FileName: Test
+ * FileName: FrameUtils
  * Author:   嘉平十七
  * Date:     2020/6/11 14:38
  * Description:
@@ -43,7 +43,7 @@ class Menu{
     public static void updata() throws Exception {
         //准备连接参数
         String driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-        String url="jdbc:sqlserver://localhost:1433;DatabaseName=Test";
+        String url="jdbc:sqlserver://localhost:1433;DatabaseName=FrameUtils";
         String name="sa";
         String password="123456";
 
@@ -84,7 +84,7 @@ class Menu{
         try {
             /*得到连接*/
             String driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-            String url="jdbc:sqlserver://localhost:1433;DatabaseName=Test";
+            String url="jdbc:sqlserver://localhost:1433;DatabaseName=FrameUtils";
             String name="sa";
             String password="123456";
             Class.forName(driverName);

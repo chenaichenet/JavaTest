@@ -8,8 +8,6 @@
  */
 package main.test.database;
 
-import cn.test.Test;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

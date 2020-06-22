@@ -19,7 +19,7 @@ public class JDBCDemo {
     public static void update() {
         Connection connection=null;
         String driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";//SQL数据库引擎
-        String dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=Test";//数据源  ！！！注意若出现加载或者连接数据库失败一般是这里出现问题
+        String dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=FrameUtils";//数据源  ！！！注意若出现加载或者连接数据库失败一般是这里出现问题
         String Name="sa";
         String Pwd="123456";
         try{

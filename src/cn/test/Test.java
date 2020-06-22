@@ -1,21 +1,32 @@
 /**
  * FileName: Test
  * Author:   嘉平十七
- * Date:     2020/5/15 16:34
+ * Date:     2020/6/16 21:06
  * Description:
  * History:
- * notes：方案一：使用InputStream将全部要拷贝的内容全部读取到程序中，再拷贝到目标文件。缺点是，当文件过大时，程序运行时间过长，甚至死机。
- *      方案二：采用部分拷贝，读取一部分输出一部分，核心操作为：
- *          InputStream：public int read(byte[] b)throw IOException;
- *          OutputStream:public void write(byte[] b,int off,int len)throw IOException;
+ * notes：
  */
 package cn.test;
 
-import java.io.*;
-import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Test {
-    public Test() {
-        System.out.println("123");
+    public static void main(String[] args) {
+      Frame frame=new Frame("测试");
+      frame.setBounds(200,200,200,200);
+      frame.setVisible(true);
+      frame.addWindowListener(new WindowAdapter() {
+          @Override
+          public void windowClosing(WindowEvent e) {
+              System.exit(0);
+          }
+      });
+      Panel panel=new Panel();
+      JLabel jLabel=new JLabel("JLabel");
+      panel.add(jLabel);
+      frame.add(panel);
     }
 }

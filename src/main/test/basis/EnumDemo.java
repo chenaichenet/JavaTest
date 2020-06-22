@@ -12,9 +12,9 @@ interface IGetColor{
     public String getColor();
 }
 
-enum Color1 { //枚举类
-    红色,绿色,蓝色;
-}
+//enum Color1 { //枚举类
+//    红色,绿色,蓝色;
+//}
 /*5*/
 enum Color2 implements IGetColor{ //枚举类
     Red("红色"),Green("绿色"),Bule("蓝色");   //枚举对象需要写在首行

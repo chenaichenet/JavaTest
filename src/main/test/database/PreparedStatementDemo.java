@@ -18,7 +18,7 @@ public class PreparedStatementDemo {
 
         try {
             String driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-            String url="jdbc:sqlserver://localhost:1433;DatabaseName=Test";
+            String url="jdbc:sqlserver://localhost:1433;DatabaseName=FrameUtils";
             String name="sa";
             String password="123456";
 

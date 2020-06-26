@@ -40,6 +40,14 @@
         <servlet-name>Out</servlet-name>
         <servlet-class>com.test.servlet.OutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>com.test.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Coding</servlet-name>
+        <servlet-class>com.test.servlet.CodingServlet</servlet-class>
+    </servlet>
 
 
     <servlet-mapping>
@@ -78,6 +86,14 @@
         <servlet-name>Out</servlet-name>
         <url-pattern>/Out</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Coding</servlet-name>
+        <url-pattern>/Coding</url-pattern>
+    </servlet-mapping>
 
 
     <context-param>
@@ -85,13 +101,56 @@
         <param-value>value</param-value>
     </context-param>
 
+
     <filter>
         <filter-name>FistFilter</filter-name>
         <filter-class>com.test.filter.FirstFilter</filter-class>
     </filter>
+    <filter>
+        <filter-name>IPCount</filter-name>
+        <filter-class>com.test.filter.IPCountFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>UserFilter</filter-name>
+        <filter-class>com.test.filter.UserFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>com.test.filter.AdminFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>Coding</filter-name>
+        <filter-class>com.test.filter.CodingFilter</filter-class>
+    </filter>
+
+
+    <filter-mapping>
+        <filter-name>IPCount</filter-name>
+        <url-pattern>/Out</url-pattern>
+        <url-pattern>/Hello.html</url-pattern>
+        <url-pattern>/IPCount/*</url-pattern>
+    </filter-mapping>
     <filter-mapping>
         <filter-name>FistFilter</filter-name>
         <url-pattern>/Out</url-pattern>
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>UserFilter</filter-name>
+        <url-pattern>/UserDemo/user/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/UserDemo/admin/*</url-pattern>
+    </filter-mapping>
+    <servlet-mapping>
+        <servlet-name>Coding</servlet-name>
+        <url-pattern></url-pattern>
+    </servlet-mapping>
+
+
+
+    <listener>
+        <listener-class>com.test.listener.IPCountListener</listener-class>
+    </listener>
 
 </web-app>

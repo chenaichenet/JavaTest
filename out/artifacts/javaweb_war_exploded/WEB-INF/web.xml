@@ -4,59 +4,72 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    
+    
+    <!--servlet_filter_listener_demo-->
     <servlet>
-        <servlet-name>SetAttribute</servlet-name>
-        <servlet-class>com.test.servlet.SetAttributeServlet</servlet-class>
+        <servlet-name>SetServletContext</servlet-name>
+        <servlet-class>com.servlet_filter_listener_demo.servlet.SetServletContextServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>GetAttribute</servlet-name>
-        <servlet-class>com.test.servlet.GetAttributeServlet</servlet-class>
+        <servlet-name>GetServletContext</servlet-name>
+        <servlet-class>com.servlet_filter_listener_demo.servlet.GetServletContextServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletConfig</servlet-name>
-        <servlet-class>com.test.servlet.ServletConfigServlet</servlet-class>
+        <servlet-class>com.servlet_filter_listener_demo.servlet.ServletConfigServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>GetResourcePaths</servlet-name>
-        <servlet-class>com.test.servlet.GetResourcePathsServlet</servlet-class>
+        <servlet-class>com.servlet_filter_listener_demo.servlet.GetResourcePathsServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>VisitCount</servlet-name>
-        <servlet-class>com.test.servlet.VisitCountServlet</servlet-class>
+        <servlet-class>com.servlet_filter_listener_demo.servlet.VisitCountServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ClassLoader</servlet-name>
-        <servlet-class>com.test.servlet.ClassLoaderServlet</servlet-class>
+        <servlet-class>com.servlet_filter_listener_demo.servlet.ClassLoaderServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>BaseDemo</servlet-name>
-        <servlet-class>com.test.servlet.BaseDemoServlet</servlet-class>
+        <servlet-class>com.servlet_filter_listener_demo.servlet.BaseDemoServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>User</servlet-name>
-        <servlet-class>com.test.servlet.UserServlet</servlet-class>
+        <servlet-name>Demo2</servlet-name>
+        <servlet-class>com.servlet_filter_listener_demo.servlet.DemoServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Out</servlet-name>
-        <servlet-class>com.test.servlet.OutServlet</servlet-class>
+        <servlet-class>com.servlet_filter_listener_demo.servlet.OutServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>com.test.servlet.LoginServlet</servlet-class>
+        <servlet-class>com.servlet_filter_listener_demo.servlet.LoginServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Coding</servlet-name>
-        <servlet-class>com.test.servlet.CodingServlet</servlet-class>
+        <servlet-class>com.servlet_filter_listener_demo.servlet.CodingServlet</servlet-class>
+    </servlet>
+
+    <!--jsp_demo-->
+    <servlet>
+        <servlet-name>AddServlet</servlet-name>
+        <servlet-class>com.jsp_demo.AddServlet</servlet-class>
     </servlet>
 
 
+    <!--servlet_filter_listener_demo-->
     <servlet-mapping>
-        <servlet-name>SetAttribute</servlet-name>
-        <url-pattern>/SetAttribute</url-pattern>
+        <servlet-name>SetServletContext</servlet-name>
+        <url-pattern>/SetServletContext</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>GetAttribute</servlet-name>
-        <url-pattern>/GetAttribute</url-pattern>
+        <servlet-name>GetServletContext</servlet-name>
+        <url-pattern>/GetServletContext</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ServletConfig</servlet-name>
@@ -79,8 +92,8 @@
         <url-pattern>/BaseDemo</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>User</servlet-name>
-        <url-pattern>/User</url-pattern>
+        <servlet-name>Demo2</servlet-name>
+        <url-pattern>/Demo2</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Out</servlet-name>
@@ -95,40 +108,49 @@
         <url-pattern>/Coding</url-pattern>
     </servlet-mapping>
 
+    <!--jsp_demo-->
+    <servlet-mapping>
+        <servlet-name>AddServlet</servlet-name>
+        <url-pattern>/Add</url-pattern>
+    </servlet-mapping>
 
+
+    <!--servlet_filter_listener_demo-->
     <context-param>
         <param-name>name</param-name>
         <param-value>value</param-value>
     </context-param>
 
 
+    <!--servlet_filter_listener_demo-->
     <filter>
         <filter-name>FistFilter</filter-name>
-        <filter-class>com.test.filter.FirstFilter</filter-class>
+        <filter-class>com.servlet_filter_listener_demo.filter.FirstFilter</filter-class>
     </filter>
     <filter>
         <filter-name>IPCount</filter-name>
-        <filter-class>com.test.filter.IPCountFilter</filter-class>
+        <filter-class>com.servlet_filter_listener_demo.filter.IPCountFilter</filter-class>
     </filter>
     <filter>
         <filter-name>UserFilter</filter-name>
-        <filter-class>com.test.filter.UserFilter</filter-class>
+        <filter-class>com.servlet_filter_listener_demo.filter.UserFilter</filter-class>
     </filter>
     <filter>
         <filter-name>AdminFilter</filter-name>
-        <filter-class>com.test.filter.AdminFilter</filter-class>
+        <filter-class>com.servlet_filter_listener_demo.filter.AdminFilter</filter-class>
     </filter>
     <filter>
         <filter-name>Coding</filter-name>
-        <filter-class>com.test.filter.CodingFilter</filter-class>
+        <filter-class>com.servlet_filter_listener_demo.filter.CodingFilter</filter-class>
     </filter>
 
 
+    <!--servlet_filter_listener_demo-->
     <filter-mapping>
         <filter-name>IPCount</filter-name>
         <url-pattern>/Out</url-pattern>
         <url-pattern>/Hello.html</url-pattern>
-        <url-pattern>/IPCount/*</url-pattern>
+        <url-pattern>/IPCountDemo/*</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>FistFilter</filter-name>
@@ -144,13 +166,15 @@
     </filter-mapping>
     <servlet-mapping>
         <servlet-name>Coding</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern></url-pattern>
     </servlet-mapping>
 
 
 
+    <!--servlet_filter_listener_demo-->
     <listener>
-        <listener-class>com.test.listener.IPCountListener</listener-class>
+        <listener-class>com.servlet_filter_listener_demo.listener.IPCountListener</listener-class>
     </listener>
+
 
 </web-app>

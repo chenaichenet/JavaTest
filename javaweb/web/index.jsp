@@ -11,6 +11,21 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  $END$<br/>
+  <%
+    out.println(session);
+  %><br/>
+  <%
+    out.println(session.getAttribute("JSESSIONID"));
+  %><br/>
+  <%
+    out.println(session.getClass().getName());
+  %><br/>
+  <%
+    session.setAttribute("aaa","AAA");
+  %>
+  <%
+    out.println(session.getAttribute("aaa"));
+  %>
   </body>
 </html>

@@ -13,6 +13,11 @@
 </head>
 <body>
 <h1>管理员界面</h1>
+<%
+    String name= (String) session.getAttribute("admin");
+    session.setAttribute("username",name);
+%>
+当前用户：<%=session.getAttribute("username")%><br/>
 <a href="<c:url value="/UserDemo/welcom.jsp"/>">游客入口</a><br>
 <a href="<c:url value="/UserDemo/user/user.jsp"/>">用户入口</a><br>
 <a href="<c:url value="/UserDemo/admin/admin.jsp"/>">管理员入口</a><br>

@@ -20,11 +20,11 @@ public class DemoServlet extends HttpServlet {
         String pwd=request.getParameter("pwd");
         if ((name!=null&&!name.equals(""))&&(pwd!=null&&!pwd.equals(""))) {
             if(name.equals("admin")&&pwd.equals("123456")){
-                request.getRequestDispatcher("/Demo/success.jsp").forward(request, response);//转发，地址栏不变，一次请求
+                request.getRequestDispatcher("/VerifyCodeDemo/success.jsp").forward(request, response);//转发，地址栏不变，一次请求
 //                request.getRequestDispatcher("Hello.html").forward(request,response);
             }else {
 //                request.getRequestDispatcher("error.jsp").forward(request, response);
-                response.sendRedirect(request.getContextPath()+"/Demo/error.jsp");   //重定向，地址栏发生变化
+                response.sendRedirect(request.getContextPath()+"/VerifyCodeDemo/error.jsp");   //重定向，地址栏发生变化
 //                response.sendRedirect(request.getContextPath()+"/Hello.html");
             }
         }

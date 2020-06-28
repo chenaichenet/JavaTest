@@ -58,7 +58,11 @@
     <!--jsp_demo-->
     <servlet>
         <servlet-name>AddServlet</servlet-name>
-        <servlet-class>com.jsp_demo.AddServlet</servlet-class>
+        <servlet-class>com.jsp_demo.servlet.AddServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerifyCode</servlet-name>
+        <servlet-class>com.jsp_demo.servlet.VerifyCodeServlet</servlet-class>
     </servlet>
 
 
@@ -120,6 +124,10 @@
         <param-name>name</param-name>
         <param-value>value</param-value>
     </context-param>
+    <servlet-mapping>
+        <servlet-name>VerifyCode</servlet-name>
+        <url-pattern>/VerifyCode</url-pattern>
+    </servlet-mapping>
 
 
     <!--servlet_filter_listener_demo-->

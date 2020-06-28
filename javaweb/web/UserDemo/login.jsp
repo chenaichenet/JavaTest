@@ -10,6 +10,14 @@
 <html>
 <head>
     <title>Login</title>
+    <script type="text/javascript">
+        function change() {
+            /*1.得到img元素
+            * 2.修改其src为原地址*/
+            var imgEle=document.getElementById("img");
+            imgEle.src="../VerifyCode?a="+new Date().getTime();
+        }
+    </script>
 </head>
 <body>
 <h1>登录</h1>
@@ -24,6 +32,13 @@
         <tr>
             <td>密码：</td>
             <td><input type="password" name="password"/></td>
+        </tr>
+        <tr>
+            <td>验证码：</td>
+            <td><input type="text" name="verifyCode"/></td>
+<%--            <td><img id="img" src="<c:url value="/VerifyCode"/>" onclick="change()"></td>--%>
+            <td><img id="img" src="../VerifyCode" onclick="change()"></td>
+            <td><a href="javascript:change">换一张</a></td>
         </tr>
         <tr>
             <td colspan="2"><input type="submit" value="登录"/></td>

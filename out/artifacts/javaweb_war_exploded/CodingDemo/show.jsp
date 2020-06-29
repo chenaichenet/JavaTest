@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>CodingDemo</title>
+    <title>字符编码</title>
 </head>
 <body>
 <%--doGet方法--%>

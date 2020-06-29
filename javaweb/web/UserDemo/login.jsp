@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Login</title>
+    <title>登录页面</title>
     <script type="text/javascript">
         function change() {
             /*1.得到img元素

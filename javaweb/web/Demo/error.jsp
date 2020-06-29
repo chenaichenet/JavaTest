@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Test</title>
+    <title>登录错误页面</title>
 </head>
 <body>
     <h1 align="center">登录失败</h1>

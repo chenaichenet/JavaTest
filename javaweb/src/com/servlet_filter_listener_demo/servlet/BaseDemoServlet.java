@@ -59,12 +59,12 @@ public class BaseDemoServlet extends BaseServlet {
 
     public String fun2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("调用了fun2()，默认转发");
-        return "/Hello.html";   //默认转发
+        return "/index.html";   //默认转发
     }
 
     public String fun3(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("调用了fun3()，转发");
-        return "f:/Hello.html";    //转发,通过修改BaseServlet确定
+        return "f:/index.html";    //转发,通过修改BaseServlet确定
     }
 
     public String fun4(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -75,6 +75,6 @@ public class BaseDemoServlet extends BaseServlet {
     }
     public String fun5(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("调用了fun5()，不支持的d操作");
-        return "d:/Hello.html";    //不支持的操作
+        return "d:/index.html";    //不支持的操作
     }
 }

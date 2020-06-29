@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Result</title>
+    <title>JSP显示结果页面</title>
 </head>
 <body>
 <%

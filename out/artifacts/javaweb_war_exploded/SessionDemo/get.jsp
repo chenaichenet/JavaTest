@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Get</title>
+    <title>获取Session中数据</title>
 </head>
 <body>
 <h1>获取session中的数据</h1>

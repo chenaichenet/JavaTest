@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>IPCount</title>
+    <title>IP过滤显示结果页面</title>
 </head>
 <body>
 <h1 align="center">显示结果</h1>

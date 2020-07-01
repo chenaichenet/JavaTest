@@ -35,7 +35,6 @@ public class JdbcUtilsDemo {
     public static void selectAll() throws Exception{
         String sql_1="select * from main";
         ResultSet resultSet=null;
-        PreparedStatement preparedStatement=null;
         Connection connection=null;
         Statement statement=null;
 

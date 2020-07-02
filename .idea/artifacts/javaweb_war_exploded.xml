@@ -7,6 +7,14 @@
         <element id="directory" name="classes">
           <element id="module-output" name="javaweb" />
         </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/../../../jar/dom4j-1.6.1.jar" />
+          <element id="file-copy" path="D:/MY/apache-tomcat-9.0.36/webapps/examples/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar" />
+          <element id="file-copy" path="D:/MY/apache-tomcat-9.0.36/webapps/examples/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../jar/sqljdbc4-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/javaweb/web/WEB-INF/lib/dom4j-1.6.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/javaweb/web/WEB-INF/lib/sqljdbc4-2.0.jar" />
+        </element>
       </element>
     </root>
   </artifact>

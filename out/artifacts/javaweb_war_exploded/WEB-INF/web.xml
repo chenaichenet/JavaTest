@@ -61,6 +61,33 @@
         <servlet-class>com.jsp_demo.servlet.VerifyCodeServlet</servlet-class>
     </servlet>
 
+    <!--ajax_demo-->
+    <servlet>
+        <servlet-name>AJAXDemo</servlet-name>
+        <servlet-class>com.ajax_demo.servelt.AJAXDemoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ValidateUsername</servlet-name>
+        <servlet-class>com.ajax_demo.servelt.ValidateUsernameServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResponseXML</servlet-name>
+        <servlet-class>com.ajax_demo.servelt.ResponseXMLServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>Province</servlet-name>
+        <servlet-class>com.ajax_demo.servelt.ProvinceServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>City</servlet-name>
+        <servlet-class>com.ajax_demo.servelt.CityServlet</servlet-class>
+    </servlet>
+
 
     <!--servlet_filter_listener_demo-->
     <servlet-mapping>
@@ -118,11 +145,37 @@
         <url-pattern>/VerifyCode</url-pattern>
     </servlet-mapping>
 
+    <!--ajax_demo-->
+    <servlet-mapping>
+        <servlet-name>AJAXDemo</servlet-name>
+        <url-pattern>/AJAXDemo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValidateUsername</servlet-name>
+        <url-pattern>/ValidateUsername</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResponseXML</servlet-name>
+        <url-pattern>/ResponseXML</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Province</servlet-name>
+        <url-pattern>/Province</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>City</servlet-name>
+        <url-pattern>/City</url-pattern>
+    </servlet-mapping>
+
 
     <!--servlet_filter_listener_demo-->
     <context-param>
         <param-name>name</param-name>
         <param-value>This is Value</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.CONFIG_FILES</param-name>
+        <param-value>/china.xml</param-value>
     </context-param>
 
 
@@ -172,7 +225,10 @@
         <servlet-name>Coding</servlet-name>
         <url-pattern></url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
 
 
     <!--servlet_filter_listener_demo-->

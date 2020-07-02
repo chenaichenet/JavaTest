@@ -61,6 +61,16 @@
         <servlet-class>com.jsp_demo.servlet.VerifyCodeServlet</servlet-class>
     </servlet>
 
+    <!--ajax_demo-->
+    <servlet>
+        <servlet-name>AJAXDemo</servlet-name>
+        <servlet-class>com.ajax_demo.servelt.AJAXDemoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ValidateUsername</servlet-name>
+        <servlet-class>com.ajax_demo.servelt.ValidateUsernameServlet</servlet-class>
+    </servlet>
+
 
     <!--servlet_filter_listener_demo-->
     <servlet-mapping>
@@ -116,6 +126,16 @@
     <servlet-mapping>
         <servlet-name>VerifyCode</servlet-name>
         <url-pattern>/VerifyCode</url-pattern>
+    </servlet-mapping>
+
+    <!--ajax_demo-->
+    <servlet-mapping>
+        <servlet-name>AJAXDemo</servlet-name>
+        <url-pattern>/AJAXDemo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValidateUsername</servlet-name>
+        <url-pattern>/ValidateUsername</url-pattern>
     </servlet-mapping>
 
 

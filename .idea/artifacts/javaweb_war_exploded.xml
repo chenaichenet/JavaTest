@@ -2,18 +2,20 @@
   <artifact type="exploded-war" name="javaweb:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/javaweb_war_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="javaweb/web/Web" />
+      <element id="javaee-facet-resources" facet="JavaWeb/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="javaweb" />
+          <element id="module-output" name="JavaWeb" />
         </element>
         <element id="directory" name="lib">
-          <element id="file-copy" path="$PROJECT_DIR$/../../../jar/dom4j-1.6.1.jar" />
           <element id="file-copy" path="D:/MY/apache-tomcat-9.0.36/webapps/examples/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar" />
           <element id="file-copy" path="D:/MY/apache-tomcat-9.0.36/webapps/examples/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/../../../jar/sqljdbc4-2.0.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/javaweb/web/WEB-INF/lib/dom4j-1.6.1.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/javaweb/web/WEB-INF/lib/sqljdbc4-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/JavaWeb/web/WEB-INF/lib/dom4j-1.6.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/JavaWeb/web/WEB-INF/lib/sqljdbc4-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/JavaWeb/web/WEB-INF/lib/jaxen-1.2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../jar/dom4j-1.6.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../jar/jaxen-1.2.0.jar" />
         </element>
       </element>
     </root>

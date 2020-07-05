@@ -29,7 +29,7 @@ public class ProvinceServlet extends HttpServlet {
         *   调用解析器读方法，传递一个流对象，得到Document*/
         try {
             SAXReader reader=new SAXReader();
-            InputStream input=this.getClass().getResourceAsStream("china.xml");
+            InputStream input=this.getClass().getResourceAsStream("E:/china.xml");
             Document doc=reader.read(input);
 
             /*查询所有province的name属性

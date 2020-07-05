@@ -1,10 +1,10 @@
 /**
  * FileName: StuService
- * Author:   ¼ÎÆ½Ê®Æß
+ * Author:   å˜‰å¹³åä¸ƒ
  * Date:     2020/6/20 11:47
  * Description:
  * History:
- * notes£º
+ * notesï¼š
  */
 package main.test.xml;
 
@@ -20,19 +20,19 @@ import java.io.FileOutputStream;
 import java.util.List;
 
 public class StuService {
-    //²éÑ¯£¬¸ù¾İid²éÑ¯ĞÅÏ¢
+    //æŸ¥è¯¢ï¼Œæ ¹æ®idæŸ¥è¯¢ä¿¡æ¯
     public static Student getStu(String id) throws Exception {
-        /*1.´´½¨½âÎöÆ÷
-        * 2.µÃµ½document
-        * 3.»ñÈ¡ËùÓĞid
-        * 4.·µ»Ølist½áºÏ£¬±éÀúlist¼¯ºÏ
-        * 5.µÃµ½Ã¿Ò»¸öidµÄ½Úµã
-        * 6.id½ÚµãµÄÖµ
-        * 7.ÅĞ¶ÏidµÄÖµºÍ´«µİµÄidÖµÊÇ·ñÏàÍ¬
-        * 8.ÏàÍ¬£¬»ñµÃidµÄ¸¸½Úµãstu
-        * 9.Í¨¹ıstu»ñÈ¡name,ageÖµ*/
-        SAXReader saxReader=new SAXReader();    //´´½¨½âÎöÆ÷
-        Document document=saxReader.read("src/main/test/xml/student.xml");    //µÃµ½document
+        /*1.åˆ›å»ºè§£æå™¨
+         * 2.å¾—åˆ°document
+         * 3.è·å–æ‰€æœ‰id
+         * 4.è¿”å›listç»“åˆï¼Œéå†listé›†åˆ
+         * 5.å¾—åˆ°æ¯ä¸€ä¸ªidçš„èŠ‚ç‚¹
+         * 6.idèŠ‚ç‚¹çš„å€¼
+         * 7.åˆ¤æ–­idçš„å€¼å’Œä¼ é€’çš„idå€¼æ˜¯å¦ç›¸åŒ
+         * 8.ç›¸åŒï¼Œè·å¾—idçš„çˆ¶èŠ‚ç‚¹stu
+         * 9.é€šè¿‡stuè·å–name,ageå€¼*/
+        SAXReader saxReader=new SAXReader();    //åˆ›å»ºè§£æå™¨
+        Document document=saxReader.read("src/main/test/xml/student.xml");    //å¾—åˆ°document
 
         List<Node> list=document.selectNodes("//id");
         Student student=new Student();
@@ -50,40 +50,40 @@ public class StuService {
         return student;
     }
 
-    //Ôö¼Ó
+    //å¢åŠ 
     public static void addStu(Student student) throws Exception {
-        SAXReader saxReader=new SAXReader();    //´´½¨½âÎöÆ÷
-        Document document=saxReader.read("src/main/test/xml/student.xml");    //µÃµ½document
-        Element root=document.getRootElement(); //µÃµ½¸ù½Úµã
-        Element stu=root.addElement("stu");     //ÔÚ¸ù½ÚµãÉÏÌí¼Óstu
-        //ÔÚstuÉÏÒÀ´ÎÌí¼Óid¡¢name¡¢age±êÇ©
+        SAXReader saxReader=new SAXReader();    //åˆ›å»ºè§£æå™¨
+        Document document=saxReader.read("src/main/test/xml/student.xml");    //å¾—åˆ°document
+        Element root=document.getRootElement(); //å¾—åˆ°æ ¹èŠ‚ç‚¹
+        Element stu=root.addElement("stu");     //åœ¨æ ¹èŠ‚ç‚¹ä¸Šæ·»åŠ stu
+        //åœ¨stuä¸Šä¾æ¬¡æ·»åŠ idã€nameã€ageæ ‡ç­¾
         Element id=stu.addElement("id");
         Element name=stu.addElement("name");
         Element age=stu.addElement("age");
-        //ÔÚid¡¢name¡¢ageÉÏÒÀ´ÎÌí¼ÓÖµ
+        //åœ¨idã€nameã€ageä¸Šä¾æ¬¡æ·»åŠ å€¼
         id.setText(student.getId());
         name.setText(student.getName());
         age.setText(student.getAge());
-        //»ØĞ´xml
+        //å›å†™xml
         OutputFormat format=OutputFormat.createPrettyPrint();
         XMLWriter xmlWriter=new XMLWriter(new FileOutputStream("src/main/test/xml/student.xml"),format);
         xmlWriter.write(document);
         xmlWriter.close();
     }
-    //É¾³ı£¬¸ù¾İÑ§ÉúidÉ¾³ı
+    //åˆ é™¤ï¼Œæ ¹æ®å­¦ç”Ÿidåˆ é™¤
     public static void delStu(String id) throws Exception {
-        SAXReader saxReader=new SAXReader();    //´´½¨½âÎöÆ÷
-        Document document=saxReader.read("src/main/test/xml/student.xml");    //µÃµ½document
-        List<Node> list=document.selectNodes("//id");   //»ñÈ¡ËùÓĞµÄid ÀûÓÃxpath://id
-        for (Node node:list){   //±éÀúlist¼¯ºÏ£¬nodeÊÇÃ¿Ò»¸öidÔªËØ
-            String idv=node.getText();  //µÃµ½id
+        SAXReader saxReader=new SAXReader();    //åˆ›å»ºè§£æå™¨
+        Document document=saxReader.read("src/main/test/xml/student.xml");    //å¾—åˆ°document
+        List<Node> list=document.selectNodes("//id");   //è·å–æ‰€æœ‰çš„id åˆ©ç”¨xpath://id
+        for (Node node:list){   //éå†listé›†åˆï¼Œnodeæ˜¯æ¯ä¸€ä¸ªidå…ƒç´ 
+            String idv=node.getText();  //å¾—åˆ°id
             if (idv.equals(id)){
-                Element stu=node.getParent();   //µÃµ½stu½Úµã
-                Element student=stu.getParent();//µÃµ½stu¸¸½Úµãstudent
-                student.remove(stu);    //É¾³ı
+                Element stu=node.getParent();   //å¾—åˆ°stuèŠ‚ç‚¹
+                Element student=stu.getParent();//å¾—åˆ°stuçˆ¶èŠ‚ç‚¹student
+                student.remove(stu);    //åˆ é™¤
             }
         }
-        //»ØĞ´
+        //å›å†™
         OutputFormat format=OutputFormat.createPrettyPrint();
         XMLWriter xmlWriter=new XMLWriter(new FileOutputStream("src/main/test/xml/student.xml"),format);
         xmlWriter.write(document);

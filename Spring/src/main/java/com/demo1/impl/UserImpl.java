@@ -6,9 +6,9 @@
  * History:
  * notes：
  */
-package com.impl;
+package com.demo1.impl;
 
-import com.dao.UserDao;
+import com.demo1.dao.UserDao;
 
 public class UserImpl implements UserDao {
 

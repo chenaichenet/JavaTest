@@ -6,7 +6,7 @@
  * History:
  * notes：
  */
-package com.impl;
+package com.demo1.impl;
 
 public class Student {
     private String name;

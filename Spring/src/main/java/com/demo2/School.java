@@ -6,10 +6,16 @@
  * History:
  * notes：
  */
-package com.impl;
+package com.demo2;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component(value = "school")
 public class School {
+    @Value("大学")
     private String name;
+
     private String address;
 
     public School() {
@@ -19,7 +25,7 @@ public class School {
     public void setName(String name) {
         this.name = name;
     }
-
+    @Value("大学地址")
     public void setAddress(String address) {
         this.address = address;
     }

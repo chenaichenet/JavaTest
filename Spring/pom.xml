@@ -7,12 +7,24 @@
     <groupId>com.spring</groupId>
     <artifactId>Spring</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>6</source>
+                    <target>6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>5.5.0.RELEASE</version>
+            <version>5.2.6.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

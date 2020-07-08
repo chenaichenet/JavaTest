@@ -6,9 +6,9 @@
  * History:
  * notes：
  */
-package com.demo3.handler;
+package com.demo3.javaProxy.handler;
 
-import com.demo3.utils.ServiceTools;
+import com.demo3.javaProxy.utils.ServiceTools;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

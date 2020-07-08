@@ -21,11 +21,19 @@
     </build>
 
     <dependencies>
+        <!--spring依赖-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>5.2.6.RELEASE</version>
         </dependency>
+        <!--aspectj依赖-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>5.2.6.RELEASE</version>
+        </dependency>
+        <!--@Test依赖-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

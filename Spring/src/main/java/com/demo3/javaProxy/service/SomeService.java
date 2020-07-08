@@ -1,4 +1,4 @@
-package com.demo3.service;
+package com.demo3.javaProxy.service;
 
 public interface SomeService {
     public void doSome();

@@ -6,9 +6,9 @@
  * History:
  * notes：
  */
-package com.demo3.service.impl;
+package com.demo3.javaProxy.service.impl;
 
-import com.demo3.service.SomeService;
+import com.demo3.javaProxy.service.SomeService;
 
 public class SomeServiceImpl implements SomeService {
     @Override

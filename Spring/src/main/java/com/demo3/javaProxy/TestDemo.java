@@ -6,11 +6,11 @@
  * History:
  * notes：
  */
-package com.demo3;
+package com.demo3.javaProxy;
 
-import com.demo3.handler.MyInvocationHandler;
-import com.demo3.service.SomeService;
-import com.demo3.service.impl.SomeServiceImpl;
+import com.demo3.javaProxy.handler.MyInvocationHandler;
+import com.demo3.javaProxy.service.SomeService;
+import com.demo3.javaProxy.service.impl.SomeServiceImpl;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;

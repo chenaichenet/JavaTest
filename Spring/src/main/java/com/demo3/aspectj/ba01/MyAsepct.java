@@ -12,6 +12,7 @@
 package com.demo3.aspectj.ba01;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 
 import java.util.Date;
@@ -44,37 +45,67 @@ public class MyAsepct {
             System.out.println("参数："+o);
         }
     }
+
     @AfterReturning(value = "execution(int com.demo3.aspectj.ba01.SomeServiceImpl.doOther(int))",returning ="obj")
     /*@AfterReturning后置通知，注解有returning属性
     属性：value，切入点表达式；returning，自定义的变量，表示目标方法是返回值的。自定义的变量名和通知方法的形参名一样。
     特点：在目标方法之后执行，能够获取到目标方法的返回值，可以根据返回值做不同的处理功能。可以修改返回值。
     Object obj=doSemo()*/
-
     public void myAfterReturning1(Object obj){
         System.out.println("后置通知——返回值："+obj);
     }
     @AfterReturning(value = "execution(Person com.demo3.aspectj.ba01.SomeServiceImpl.doPerson(String,int))",returning ="obj")
-    /*@AfterReturning后置通知，注解有returning属性
-    属性：value，切入点表达式；returning，自定义的变量，表示目标方法是返回值的。自定义的变量名和通知方法的形参名一样。
-    特点：在目标方法之后执行，能够获取到目标方法的返回值，可以根据返回值做不同的处理功能。可以修改返回值。
-    Object obj=doSemo()*/
-
     public void myAfterReturning2(Person obj){
         System.out.println("后置通知——返回值："+obj);
         obj.setAge(1000);
         System.out.println("修改后的数据："+obj);
     }
 
+    @Around(value = "execution(int *..SomeServiceImpl.doOther(int))")
+    public Object myAround(ProceedingJoinPoint point) throws Throwable {
+        Object result=null;
+        int s;
+        System.out.println("环绕通知——前");
+        /*通过参数判断目标方法是否执行*/
+        Object args[]=point.getArgs();
+        System.out.println(args[0]);
+        s= (int) args[0];
+        if (s==20){
+            System.out.println("12345");
+        }
+        result=point.proceed();//执行目标方法，等同于method.invoke();
+        System.out.println("环绕通知——后");
+        if (result!=null){  //修改返回值
+            result=100;
+        }
+        return result;
+    }
 
-    @After(value = "execution(String com.demo3.aspectj.ba01.SomeServiceImpl.doOther(int))")
+    @AfterThrowing(value = "execution(void *..SomeServiceImpl.doException())",throwing ="e")
+    public void AfterThrowing(Exception e){
+        System.out.println("异常通知");
+    }
+
+
+    @After(value = "execution(* com.demo3.aspectj.ba01.SomeServiceImpl.doOther(int))")
     //代理对象调用doOther时执行
-    public void myAefore(){
+    public void myAfter(){
         //切面要执行的功能代码
         System.out.println("最终通知");
     }
 
-    @Before(value = "execution(* do*(..))")
+    @After(value = "execution(* do*(..))")
     public void test(){
-        System.err.println("====================");
+        System.err.println("==========方法结束==========");
+    }
+
+    @Pointcut(value = "execution(public void com.demo3.aspectj.ba01.SomeServiceImpl.doException())")
+    public void myPointcut(){
+        //无需代码，显示不出来的，所以一般是使用private修饰的方法。只是用来定义切入点的功能方法。
+        System.out.println("切入点");
+    }
+    @AfterReturning(value = "myPointcut()")
+    public void myPointcutDemo(){
+        System.out.println("切入点演示");
     }
 }

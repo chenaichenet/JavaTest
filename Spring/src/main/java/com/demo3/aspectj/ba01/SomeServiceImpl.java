@@ -29,4 +29,10 @@ public class SomeServiceImpl implements SomeService {
         person.setAge(age);
         return person;
     }
+
+    @Override
+    public void doException() {
+        System.out.println("===目标方法doException()===");
+//        int a=10/0; //抛出异常
+    }
 }

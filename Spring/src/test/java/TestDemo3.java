@@ -1,5 +1,6 @@
 import com.demo3.aspectj.ba01.Person;
 import com.demo3.aspectj.ba01.SomeService;
+import com.demo3.aspectj.ba01.SomeServiceImpl;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -22,14 +23,29 @@ public class TestDemo3 {
 
         //获取目标对象
         SomeService someService = (SomeService) app.getBean("someService");
+        //有接口，所以使用的是jdk的动态代理，输出结果为：com.sun.proxy.$Proxy15
+        //没有接口，使用的是spring框架提供的CGLIB动态代理
+        System.out.println(someService.getClass().getName());
+
         //通过代理的对象执行方法，实现目标方法的增强
-//        someService.doSome("test",20);
+        someService.doSome("test",20);
+
         someService.doOther(20);
+        /*环绕通知修改值*/
+        int s=someService.doOther(20);
+        //等同于int s=someService.myRound(20);
+        System.out.println(s);
+
+        /*后置通知修改值*/
         Person str=someService.doPerson("chen",20);
-
-//        SomeServiceImpl some=new SomeServiceImpl();
-//        some.doSome("sss",10);
+        System.out.println(str);
 
 
+        /*异常通知和@Pointcut使用*/
+        someService.doException();
+
+        /*直接调用*/
+        SomeServiceImpl some=new SomeServiceImpl();
+        some.doSome("sss",20);
     }
 }

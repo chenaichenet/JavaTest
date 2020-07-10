@@ -7,14 +7,17 @@
     id：要执行的sql语句的唯一标识，mybatis会使用id值来找到要执行的sql语句，可以自定义，但是要求使用接口中的方法名称。
     resultType：表示结果类型的，是sql语句执行后得到ResultSet，遍历ResultSet得到Java对象的类型。-->
     <select id="selectStudents" resultType="com.domain.Student">
-    select * from student order by id
-  </select>
+        select * from student order by id
+    </select>
+    <delete id="deleteStudent">
+        delete from student where id=1002
+    </delete>
 </mapper>
 
 <!--SQL映射文件：写SQL语句的，mybatis会执行这些sql
     1、DOCTYPE这一部分指定约束文件的
     2、mapper是当前文件的根标签，必须的。
-        namespace，是命名空间，唯一值的，可以是自定义的字符串。要求使用dao接口的全限定名称。
+        namespace，是命名空间，唯一值的，可以是自定义的字符串。推荐使用dao接口的全限定名称。
     3、在当前文件中可以使用特点的标签，表示数据库的特定操作。
         <select>：查询
         <update>：更新

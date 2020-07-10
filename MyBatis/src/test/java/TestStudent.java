@@ -31,11 +31,22 @@ public class TestStudent {
         SqlSession sqlSession=factory.openSession();
         //指定要执行的sql语句，sql映射文件中的namespace+"."+标签id
         String sqlId="com.dao.student.StudentDao"+"."+"selectStudents";
+//        String sqlId="com.dao.student.StudentDao.selectStudents";
         //指定sql
         List<Student> studentList = sqlSession.selectList(sqlId);
         //输出结果
         studentList.forEach(student -> System.out.println(student));
         //关闭SqlSession对象
         sqlSession.close();
+
+        /*返回1，却没有删除？*/
+//        InputStream in=Resources.getResourceAsStream("mybatis.xml");
+//        SqlSessionFactoryBuilder builder=new SqlSessionFactoryBuilder();
+//        SqlSessionFactory factory=builder.build(in);
+//        SqlSession sqlSession=factory.openSession();
+//        String sqlId="com.dao.student.StudentDao.deleteStudent";
+//        int res=sqlSession.delete(sqlId);
+//        System.out.println(res);
+//        sqlSession.close();
     }
 }

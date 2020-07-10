@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+                <property name="url" value="jdbc:sqlserver://localhost:1433;DatabaseName=Test"/>
+                <property name="username" value="sa"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="com/dao/StudentDao.xml"/>
+    </mappers>
+</configuration>
+
+<!--mybatis的主配置文件，主要定义了数据库的配置信息，sql映射文件的位置。
+    1、DOCTYPE：约束文件。
+    2、configuration：根标签，表示各种配置信息的。
+    3、environments：环境配置，数据库的连接信息。
+        default：必须和environment值一样，告诉mybatis使用哪个数据库的连接信息。
+    4、environment：一个数据库的配置信息。
+        id：自定义的唯一值，表示环境名称。
+    5、transactionManager：mybatis事务类型。
+        JDBC：表示使用JDBC中的Connection对象的commit，rollback做事务处理。
+    6、dataSource：数据源，连接数据库
+        type：表示数据源的类型，POLLED表示使用连接池
+    7、mappers：指定sql映射文件的位置
+        mapper：一个mapper就是一个文件的位置，从类路径开始的路径信息，从target/classes开始
+-->

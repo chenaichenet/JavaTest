@@ -1,4 +1,4 @@
-package com.demo3.aspectj.ba01;
+package com.demo3.aspectj;
 
 public interface SomeService {
     public void doSome(String name,int age);

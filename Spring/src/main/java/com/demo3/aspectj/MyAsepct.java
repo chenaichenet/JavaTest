@@ -9,7 +9,7 @@
  * 切面类：用来给业务方法增加方法的类，类中有切面功能的代码。
  * 位置：在类的定义上面
  */
-package com.demo3.aspectj.ba01;
+package com.demo3.aspectj;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -26,7 +26,7 @@ public class MyAsepct {
     *   3、方法名称自定义
     *   4、方法可以有参数，也可以没有参数
     *       如果有参数，参数不是自定义的，有几个参数类型可以使用*/
-    @Before(value = "execution(public void com.demo3.aspectj.ba01.SomeServiceImpl.doSome(String,int))")   //前置通知
+    @Before(value = "execution(public void com.demo3.aspectj.SomeServiceImpl.doSome(String,int))")   //前置通知
     //没有异常，分别是（权限 返回值 包名.类名.方法(类型,类型) 无异常）
     //对象交给spring管理
     public void myBefore(JoinPoint join){
@@ -46,7 +46,7 @@ public class MyAsepct {
         }
     }
 
-    @AfterReturning(value = "execution(int com.demo3.aspectj.ba01.SomeServiceImpl.doOther(int))",returning ="obj")
+    @AfterReturning(value = "execution(int com.demo3.aspectj.SomeServiceImpl.doOther(int))",returning ="obj")
     /*@AfterReturning后置通知，注解有returning属性
     属性：value，切入点表达式；returning，自定义的变量，表示目标方法是返回值的。自定义的变量名和通知方法的形参名一样。
     特点：在目标方法之后执行，能够获取到目标方法的返回值，可以根据返回值做不同的处理功能。可以修改返回值。
@@ -54,7 +54,7 @@ public class MyAsepct {
     public void myAfterReturning1(Object obj){
         System.out.println("后置通知——返回值："+obj);
     }
-    @AfterReturning(value = "execution(Person com.demo3.aspectj.ba01.SomeServiceImpl.doPerson(String,int))",returning ="obj")
+    @AfterReturning(value = "execution(com.demo3.aspectj.Person com.demo3.aspectj.SomeServiceImpl.doPerson(String,int))",returning ="obj")
     public void myAfterReturning2(Person obj){
         System.out.println("后置通知——返回值："+obj);
         obj.setAge(1000);
@@ -69,10 +69,10 @@ public class MyAsepct {
         /*通过参数判断目标方法是否执行*/
         Object args[]=point.getArgs();
         System.out.println(args[0]);
-        s= (int) args[0];
-        if (s==20){
-            System.out.println("12345");
-        }
+//        s= (int) args[0];
+//        if (s==20){
+//            System.out.println("12345");
+//        }
         result=point.proceed();//执行目标方法，等同于method.invoke();
         System.out.println("环绕通知——后");
         if (result!=null){  //修改返回值
@@ -87,7 +87,7 @@ public class MyAsepct {
     }
 
 
-    @After(value = "execution(* com.demo3.aspectj.ba01.SomeServiceImpl.doOther(int))")
+    @After(value = "execution(* com.demo3.aspectj.SomeServiceImpl.doOther(int))")
     //代理对象调用doOther时执行
     public void myAfter(){
         //切面要执行的功能代码
@@ -99,7 +99,7 @@ public class MyAsepct {
         System.err.println("==========方法结束==========");
     }
 
-    @Pointcut(value = "execution(public void com.demo3.aspectj.ba01.SomeServiceImpl.doException())")
+    @Pointcut(value = "execution(public void com.demo3.aspectj.SomeServiceImpl.doException())")
     public void myPointcut(){
         //无需代码，显示不出来的，所以一般是使用private修饰的方法。只是用来定义切入点的功能方法。
         System.out.println("切入点");

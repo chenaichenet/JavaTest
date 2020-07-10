@@ -5,7 +5,7 @@
  * Description:
  * notes：
  */
-package com.demo3.aspectj.ba01;
+package com.demo3.aspectj;
 
 public class Person {
     private String name;

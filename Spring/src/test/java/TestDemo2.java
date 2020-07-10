@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * FileName: TestDemo2
  * Author:   嘉平十七
  * Date:     2020/7/7 10:34
- * Description: 基于注解的DI实现测试
+ * Description: 基于注解的DI实现测试，对应demo2包下的文件
  * History:
  * notes：
  */

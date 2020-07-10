@@ -5,7 +5,7 @@
  * Description: 操作student表的接口
  * notes：
  */
-package com.dao;
+package com.dao.student;
 
 import com.domain.Student;
 

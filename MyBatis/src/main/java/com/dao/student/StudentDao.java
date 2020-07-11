@@ -14,5 +14,7 @@ import java.util.List;
 public interface StudentDao {
     //查询所有，一行数据对应一个对象
     public List<Student> selectStudents();
-    public int deleteStudent();
+    public int insertSudent(Student student);
+    public int deleteStudent(int whereId);
+    public int updateStudent(Student student);
 }

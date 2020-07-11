@@ -1,4 +1,5 @@
 import com.domain.Classmate;
+import com.utils.SqlSessionUtils;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -19,9 +20,10 @@ import java.util.List;
 public class TestClassmate {
     public static void main(String[] args) throws IOException {
 
-        SqlSession sqlSession=new SqlSessionFactoryBuilder().build(Resources.getResourceAsStream("mybatis.xml")).openSession();
+//        SqlSession sqlSession=new SqlSessionFactoryBuilder().build(Resources.getResourceAsStream("mybatis.xml")).openSession();
 
-        String sqlId="com.dao.classmate.ClassmateDao"+"."+"selectClassmates";
+        SqlSession sqlSession=SqlSessionUtils.getSqlSession();
+        String sqlId="com.dao.classmate.ClassmateDao.selectClassmates";
 
         List<Classmate> classmateList = sqlSession.selectList(sqlId);
 

@@ -13,6 +13,13 @@ public class Student {
     private String email;
     private int age;
 
+    public void setAll(int id,String name,String email,int age){
+        this.id=id;
+        this.name=name;
+        this.email=email;
+        this.age=age;
+    }
+
     public int getId() {
         return id;
     }

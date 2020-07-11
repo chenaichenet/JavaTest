@@ -1,3 +1,4 @@
+import com.dao.student.StudentDao;
 import com.domain.Student;
 import com.utils.SqlSessionUtils;
 import org.apache.ibatis.io.Resources;
@@ -47,6 +48,7 @@ public class TestStudent {
     }
     @Test
     public void Test2(){
+        //插入
         SqlSession sqlSession=SqlSessionUtils.getSqlSession();
         String sqlId="com.dao.student.StudentDao.insertStudent";
         Student student=new Student();
@@ -66,6 +68,7 @@ public class TestStudent {
     }
     @Test
     public void Test3(){
+        //删除
         SqlSession sqlSession=SqlSessionUtils.getSqlSession();
         String sqlId="com.dao.student.StudentDao.deleteStudent";
         Scanner scanner=new Scanner(System.in);
@@ -76,20 +79,36 @@ public class TestStudent {
     }
     @Test
     public void Test4(){
+        //更新
         SqlSession sqlSession=SqlSessionUtils.getSqlSession();
-        String sqlId="com.dao.student.StudentDao.updateStudent";
-
+//        String sqlId="com.dao.student.StudentDao.updateStudent";
+//
+//        Student student=new Student();
+//        Scanner scanner=new Scanner(System.in);
+//
+//        int id=scanner.nextInt();
+//        String name=scanner.next();
+//        String email=scanner.next();
+//        int age= scanner.nextInt();
+//
+//        student.setAll(id,name,email,age);
+//        int num = sqlSession.update(sqlId,student);
+//        sqlSession.commit();
+//        System.out.println("影响行数："+num);
+        StudentDao dao = sqlSession.getMapper(StudentDao.class);
         Student student=new Student();
-        Scanner scanner=new Scanner(System.in);
-
-        int id=scanner.nextInt();
-        String name=scanner.next();
-        String email=scanner.next();
-        int age= scanner.nextInt();
-
-        student.setAll(id,name,email,age);
-        int num = sqlSession.update(sqlId,student);
+        student.setAll(1001,"张三","zhangsan@qq.com",30);
+        int num = dao.updateStudent(student,1001);
         sqlSession.commit();
+        sqlSession.close();
         System.out.println("影响行数："+num);
+    }
+    @Test
+    public void Test5(){
+        //使用mybatis的动态代理机制，可以不创建接口的实现类就调用接口中的方法
+        SqlSession sqlSession=SqlSessionUtils.getSqlSession();
+        StudentDao dao=sqlSession.getMapper(StudentDao.class);  //这个对象，就是jdk的动态代理类型
+        List<Student> studentList = dao.selectStudents();   //这里调用的方法，就是映射文件中定义的方法，所以这里最好要保证接口中的方法名和文件中的id一致
+        studentList.forEach(student -> System.out.println(student));
     }
 }

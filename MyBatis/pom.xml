@@ -27,6 +27,17 @@
 
     </dependencies>
     <build>
+        <!--指定jdk版本-->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
         <resources>
             <!--用于扫描resources写的xml，properties配置文件的插件
             因为正常编译下，target/classes目录下不会出现配置文件，编译器选择忽略配置文件了-->

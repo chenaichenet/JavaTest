@@ -22,6 +22,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com.demo4.dao.ClassmateDao.xml"/>
+        <mapper class="com.demo4.dao.ClassmateDao"/>
     </mappers>
 </configuration>

@@ -1,7 +1,7 @@
 /**
  * FileName: Classmate
  * Author:   嘉平十七
- * Date:     2020/7/12 17:44
+ * Date:     2020/7/12 20:14
  * Description: 数据库表classmate的实体类
  * notes：
  */

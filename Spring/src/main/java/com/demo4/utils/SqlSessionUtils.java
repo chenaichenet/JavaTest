@@ -1,8 +1,8 @@
 /**
  * FileName: SqlSessionUtils
  * Author:   嘉平十七
- * Date:     2020/7/12 17:57
- * Description: 获取SqlSession
+ * Date:     2020/7/12 20:18
+ * Description: 获取SqlSession对象
  * notes：
  */
 package com.demo4.utils;
@@ -18,10 +18,10 @@ import java.io.InputStream;
 public class SqlSessionUtils {
     private static SqlSessionFactory factory=null;
     static {
-
         try {
             InputStream inputStream= Resources.getResourceAsStream("mybatis.xml");
-            factory=new SqlSessionFactoryBuilder().build(inputStream);
+            SqlSessionFactoryBuilder builder=new SqlSessionFactoryBuilder();
+            factory=builder.build(inputStream);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("创建SqlSessionFactory对象失败");

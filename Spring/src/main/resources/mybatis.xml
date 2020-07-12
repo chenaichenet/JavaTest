@@ -22,6 +22,12 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com.demo4.dao.ClassmateDao.xml"/>
+        <!--resource找不到文件，这里采用了class方式加载-->
+        <mapper class="com.demo4.dao.ClassmateDao"/>
+
+        <!--这是两种方法-->
+<!--        <mapper resource="com.demo4.dao.ClassmateDao.xml"/>-->
+<!--        <package name="com.demo4.dao"/>-->
+
     </mappers>
 </configuration>

@@ -9,6 +9,25 @@
     <version>1.0-SNAPSHOT</version>
 
     <build>
+        <!-- 如果不添加此节点mybatis的mapper.xml文件都会被漏掉。 -->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
         <!--指定jdk版本-->
         <plugins>
             <plugin>
@@ -20,18 +39,6 @@
                 </configuration>
             </plugin>
         </plugins>
-        <resources>
-            <!--用于扫描resources写的xml，properties配置文件的插件
-            因为正常编译下，target/classes目录下不会出现配置文件，编译器选择忽略配置文件了-->
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.xml</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-        </resources>
     </build>
 
     <dependencies>

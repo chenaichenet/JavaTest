@@ -3,5 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.demo4.dao.ClassmateDao">
-    <select id="selectAll" resultType=""
+    <select id="selectAll" resultType="classmate">
+        select * from classmate
+    </select>
 </mapper>

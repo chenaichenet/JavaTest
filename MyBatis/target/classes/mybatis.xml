@@ -3,18 +3,24 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <properties resource="jdbc.properties"/>
     <!--配置日志-->
 <!--    <settings>-->
 <!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
 <!--    </settings>-->
+    <!--别名-->
+    <typeAliases>
+        <typeAlias type="com.domain.Classmate" alias="classmate"/>
+    </typeAliases>
+    
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-                <property name="url" value="jdbc:sqlserver://localhost:1433;DatabaseName=Test"/>
-                <property name="username" value="sa"/>
-                <property name="password" value="123456"/>
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
     </environments>

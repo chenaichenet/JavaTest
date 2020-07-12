@@ -17,7 +17,6 @@ public class TestDemo1 {
     ApplicationContext app=new ClassPathXmlApplicationContext("spring1.xml");
     @Test
     public void Test(){
-        ApplicationContext app=new ClassPathXmlApplicationContext("spring1.xml");
         UserDao userDao = (UserDao) app.getBean("userDao");
         userDao.see();
     }

@@ -23,4 +23,39 @@ public class ClassmateDaoImpl implements ClassmateDao{
         sqlSession.close();
         return studentList;
     }
+
+    @Override
+    public List<Classmate> selectLike(String name) {
+        return null;
+    }
+
+    @Override
+    public List<Classmate> selectLike2(String name) {
+        return null;
+    }
+
+    @Override
+    public List<Classmate> selectIf(Classmate classmate) {
+        return null;
+    }
+
+    @Override
+    public List<Classmate> selectWhere(Classmate classmate) {
+        return null;
+    }
+
+    @Override
+    public List<Classmate> selectForeach(List<Integer> idlist) {
+        return null;
+    }
+
+    @Override
+    public List<Classmate> selectForeach2(List<Classmate> clslist) {
+        return null;
+    }
+
+    @Override
+    public List<Classmate> selectsql(List<Classmate> clslist) {
+        return null;
+    }
 }

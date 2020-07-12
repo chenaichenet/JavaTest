@@ -4,6 +4,58 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.classmate.ClassmateDao">
     <select id="selectClassmates" resultType="com.domain.Classmate">
-    select * from classmate
-  </select>
+        select * from classmate
+    </select>
+
+    <select id="selectLike" resultType="classmate">
+        select * from classmate where name like #{name}
+    </select>
+
+    <select id="selectIf" resultType="classmate">
+        select * from classmate where 1=1
+        <if test="name != null and num != ''">
+            and name=#{name}
+        </if>
+        <if test="age>0">
+            and age=#{age}
+        </if>
+    </select>
+    <select id="selectWhere" resultType="classmate">
+        select * from classmate
+        <where>
+            <if test="name!=null and name!=''">
+                name like #{name}
+            </if>
+            <if test="age>0">
+                or age=#{age}
+            </if>
+        </where>
+    </select>
+    <select id="selectForeach" resultType="classmate">
+        select * from classmate where id in
+        <foreach collection="list" item="clsid" open="(" close=")" separator=",">
+            #{clsid}
+        </foreach>
+    </select>
+    <select id="selectForeach2" resultType="classmate">
+        /*开始，结束都可以拿出来，分隔符也可以，通过最后加一个不存在的-1值，可以解决多出来的一个分隔符*/
+        select * from classmate where id in (
+        <foreach collection="list" item="clslist">
+            #{clslist.id} ,
+        </foreach>
+        -1 )
+    </select>
+    <sql id="testsql">
+        select * from classmate
+    </sql>
+    <select id="selectsql" resultType="classmate">
+        /*引用sql片段*/
+        <include refid="testsql"/>
+        <if test="list != null and list.size >0">
+            where id in
+            <foreach collection="list" item="clslist" open="(" close=")" separator=",">
+                #{clslist.id}
+            </foreach>
+        </if>
+    </select>
 </mapper>

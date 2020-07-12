@@ -7,6 +7,23 @@
     id：要执行的sql语句的唯一标识，mybatis会使用id值来找到要执行的sql语句，可以自定义，但是要求使用接口中的方法名称。
     resultType：表示结果类型的，是sql语句执行后得到ResultSet，遍历ResultSet得到Java对象的类型。-->
     <select id="selectStudents" resultType="com.domain.Student">
+        <!--select * from student where id=#{id}
+        执行过程，使用#{}后，mybatis执行sql是使用jdbc中的PreparedStatement对象
+               由mybatis执行下面代码：
+                   mybatis创建Connection，PreparedStatement对象
+                   String sql="select form student where id=?";
+                   PreparedStatement pst=conn.preparedStatement(sql);
+                   pst.set(1,id(传入进来的值));
+               执行sql封装为resultType="com.domain.Student"这个对象
+                   ResultSet rs=pst.executeQuery();
+                   while(rs.next()){
+                       Student student=new Student();
+                       student.setId(rs.getInt("id"));
+                       student.setName(rs.getString("name"));
+                       student.setEmail(rs.getString("email"));
+                       student.setAge(rs.getInt("age"));
+                   }
+                   return student;-->
         select * from student order by id
     </select>
     <insert id="insertStudent">
@@ -16,7 +33,7 @@
         delete from student where id=#{whereId}
     </delete>
     <update id="updateStudent">
-        update student set id=#{id},name=#{name},email=#{email},age=#{age} where id=#{id}
+        update student set id=#{stu.id},name=#{stu.name},email=#{stu.email},age=#{stu.age} where id=#{whereid}
     </update>
 </mapper>
 

@@ -7,6 +7,11 @@
 <!--    <settings>-->
 <!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
 <!--    </settings>-->
+    <!--别名-->
+    <typeAliases>
+        <typeAlias type="com.domain.Classmate" alias="classmate"/>
+    </typeAliases>
+    
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>

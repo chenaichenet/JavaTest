@@ -14,4 +14,5 @@ import java.util.List;
 public interface ClassmateDao {
     public List<Classmate> selectAll();
     public List<Classmate> selectWhere(Classmate classmate);
+    public int inserClassmate(Classmate classmate);
 }

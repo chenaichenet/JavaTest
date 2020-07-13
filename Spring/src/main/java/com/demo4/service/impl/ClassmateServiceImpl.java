@@ -32,4 +32,10 @@ public class ClassmateServiceImpl implements ClassmateService {
         List<Classmate> classmateList=classmateDao.selectWhere(classmate);
         return classmateList;
     }
+
+    @Override
+    public int insert(Classmate classmate) {
+        int num = classmateDao.inserClassmate(classmate);
+        return num;
+    }
 }

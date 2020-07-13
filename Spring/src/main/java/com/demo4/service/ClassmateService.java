@@ -14,4 +14,5 @@ import java.util.List;
 public interface ClassmateService {
     List<Classmate> squeryAll();
     List<Classmate> squeryWhere(Classmate classmate);
+    public int insert(Classmate classmate);
 }

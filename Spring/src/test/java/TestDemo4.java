@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -56,11 +57,19 @@ public class TestDemo4 {
         List<Classmate> classmateList = classmateService.squeryAll();
         classmateList.forEach(classmate1 -> System.out.println(classmate1));
     }
+    //@Transactional  //事务注解全默认值
     @Test
     public void TestSqueryWhere(){
         ClassmateService classmateService = (ClassmateService) app.getBean("classmateService");
         Classmate classmate=(Classmate) app.getBean("classmate");
         List<Classmate> classmateList = classmateService.squeryWhere(classmate);
         classmateList.forEach(classmate1 -> System.out.println(classmate1));
+    }
+    @Test
+    public void TestInsert(){
+        ClassmateService classmateService = (ClassmateService) app.getBean("classmateService");
+        Classmate classmate=new Classmate(100,"测试",100,"地址","性别",1100);
+        int num = classmateService.insert(classmate);
+        System.out.println(num);
     }
 }

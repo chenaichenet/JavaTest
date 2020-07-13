@@ -8,6 +8,14 @@
 
     <!--依然采用配置文件的方法，向spring4.xml中传递数据库连接参数-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!--在Spring配置文件中出现通配符的匹配很全面, 但无法找到元素 ‘context:property-placeholder’ 的声明这个错误，其实主要是我们在引入命名空间时没有正确引入它的DTD解析文件，当然你必须在把Spring相应的包导入正确的情况下。
+        解决方案就是如下：
+        xmlns:context=“http://www.springframework.org/schema/context”
+        同时在xsi:schemaLocation这个字符串中添加context相关的解析文件
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd。
+        其他的如util命名空间导入方式一样，只是把context换成相应util就可以了-->
+
     <!--声明数据源DataSource，连接数据库，不用再使用mybatis去自己添加连接参数-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <!--init-method，spring会自动调用该方法创建，destroy-method，spring自定调用该方法销毁-->

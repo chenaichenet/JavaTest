@@ -1,8 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
     <!--spring整合mybatis-->
 
+    <!--依然采用配置文件的方法，向spring4.xml中传递数据库连接参数-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!--在Spring配置文件中出现通配符的匹配很全面, 但无法找到元素 ‘context:property-placeholder’ 的声明这个错误，其实主要是我们在引入命名空间时没有正确引入它的DTD解析文件，当然你必须在把Spring相应的包导入正确的情况下。
+        解决方案就是如下：
+        xmlns:context=“http://www.springframework.org/schema/context”
+        同时在xsi:schemaLocation这个字符串中添加context相关的解析文件
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd。
+        其他的如util命名空间导入方式一样，只是把context换成相应util就可以了-->
+
+    <!--声明数据源DataSource，连接数据库，不用再使用mybatis去自己添加连接参数-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <!--init-method，spring会自动调用该方法创建，destroy-method，spring自定调用该方法销毁-->
+<!--        <property name="url" value="jdbc:sqlserver://localhost:1433;DatabaseName=Test"/>-->
+<!--        <property name="username" value="sa"/>-->
+<!--        <property name="password" value="123456"/>-->
+<!--        <property name="maxActive" value="20"/>-->
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="maxActive" value="20"/>
+
+        <!--不需要driver参数，会自动判断驱动-->
+    </bean>
+    <!--创建SqlSessionFactoryBean类对象，该类是内部创建SqlSessionFactory的-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--set注入，把数据库连接池赋给dataSource-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--mybatis主配置文件的位置
+            configLocation：Resource类型的，是spring中的资源，读取配置文件的。
+            赋值使用value，指定文件路径classpath:表示文件的位置。
+        -->
+        <property name="configLocation" value="classpath:mybatis.xml"/>
+    </bean>
+    <!--创建dao对象，使用SqlSession的getMapper(ClassmateDao.class)
+        MapperScannerConfigurer在内部调用getMapper方法生成dao接口的代理对象-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--指定sqlSessionFactory对象的id-->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <!--指定包名，dao接口所在的包名
+            MapperScannerConfigurer会扫描包中的所有接口，把每个接口都执行一个getMapper方法，得到每个接口的dao对象，放到spring容器中
+            多个包用逗号分隔，默认接口对象名是接口名首字母小写-->
+        <property name="basePackage" value="com/demo4/dao"/>
+    </bean>
+    <!--声明service-->
+    <bean id="classmateService" class="com.demo4.service.impl.ClassmateServiceImpl">
+        <property name="classmateDao" ref="classmateDao"/>
+    </bean>
+
+    <bean id="classmate" class="com.demo4.domain.Classmate">
+        <property name="name" value="%王%"/>
+        <property name="age" value="20"/>
+    </bean>
 </beans>

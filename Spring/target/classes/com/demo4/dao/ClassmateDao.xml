@@ -6,4 +6,15 @@
     <select id="selectAll" resultType="classmate">
         select * from classmate
     </select>
+    <select id="selectWhere" resultType="classmate">
+        select * from classmate
+        <where>
+            <if test="name != null and name != ''">
+                name like #{name}
+            </if>
+            <if test="age>0">
+                or age=#{age}
+            </if>
+        </where>
+    </select>
 </mapper>

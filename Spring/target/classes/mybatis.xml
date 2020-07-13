@@ -4,24 +4,20 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <!--加载配置文件-->
-    <properties resource="jdbc.properties"/>
+<!--    <properties resource="jdbc.properties"/>-->
     <!--自定义类别名-->
     <typeAliases>
         <typeAlias type="com.demo4.domain.Classmate" alias="classmate"/>
     </typeAliases>
-    <!--连接参数-->
-    <environments default="development">
-        <environment id="development">
-            <transactionManager type="JDBC"/>
-            <dataSource type="POOLED">
-                <property name="driver" value="${jdbc.driver}"/>
-                <property name="url" value="${jdbc.url}"/>
-                <property name="username" value="${jdbc.username}"/>
-                <property name="password" value="${jdbc.password}"/>
-            </dataSource>
-        </environment>
-    </environments>
+    <!--连接参数，此处通过spring的配置文件，spring4.xml进行了配置，采用了阿里云的连接池-->
+
     <mappers>
+        <!-- class方式加载配置文件:class指定的是 mapper接口的地址
+        但是这时候就需要将接口类 和映射文件放在同一个目录下-->
         <mapper class="com.demo4.dao.ClassmateDao"/>
+        <!--这是两种方法-->
+<!--        <mapper resource="com.demo4.dao.ClassmateDao.xml"/>-->
+<!--        <package name="com.demo4.dao"/>-->
+
     </mappers>
 </configuration>

@@ -11,7 +11,7 @@ Spring整合Mybatis
     创建dao接口和mapper文件
     创建mybatis主配置文件
     创建spring配置文件：声明mybatis的对象交给spring创建
-        数据源
+        数据源Datasource
         SqlSessionFactory
         Dao对象
         声明自定义的service

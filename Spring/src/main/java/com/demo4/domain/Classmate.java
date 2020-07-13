@@ -15,6 +15,18 @@ public class Classmate {
     private String gender;
     private int phone;
 
+    public Classmate() {
+    }
+
+    public Classmate(int id, String name, int age, String address, String gender, int phone) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.gender = gender;
+        this.phone = phone;
+    }
+
     public int getId() {
         return id;
     }

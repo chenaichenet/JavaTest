@@ -1,3 +1,0 @@
-Spring框架的AOP，通过AspectJ框架实现。
-aspectj包下是AspectJ框架实现的AOP
-javaProxy包下是jdk的动态代理方式

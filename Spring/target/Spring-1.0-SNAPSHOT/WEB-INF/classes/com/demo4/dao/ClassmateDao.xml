@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo4.dao.ClassmateDao">
+    <select id="selectAll" resultType="classmate">
+        select * from classmate
+    </select>
+    <select id="selectWhere" resultType="classmate">
+        select * from classmate
+        <where>
+            <if test="name != null and name != ''">
+                name like #{name}
+            </if>
+            <if test="age>0">
+                or age=#{age}
+            </if>
+        </where>
+    </select>
+    <insert id="insertClassmate">
+        insert into classmate values (#{id},#{name},#{age},#{address},#{gender},#{phone})
+    </insert>
+</mapper>

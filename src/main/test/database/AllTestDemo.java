@@ -85,7 +85,7 @@ class SelectDatabase extends Menus{
     public void selectAll() throws Exception{
         getConnection();
         System.out.println("查询所有数据如下：");
-        String sql_1="select * from main";
+        String sql_1="select * from classmate";
         resultSet=statement.executeQuery(sql_1);
         while (resultSet.next()) {
             //光标向下移动一行，判断是否存在
@@ -106,7 +106,7 @@ class SelectDatabase extends Menus{
         /*此处不适用prepareStatement的原因是，两者执行的方式不同。
         * 一个是使用：statement.executeQuery(sql)
         * 一个是使用：preparedStatement.executeQuery()*/
-        String sql="select * from main where id='"+n+"'";
+        String sql="select * from classmate where id='"+n+"'";
         selectResultSet(sql);
     }
     public void selectResultSet(String sql) throws Exception{
@@ -127,13 +127,13 @@ class UpdataDatabase extends Menus{
     public void Intsert() throws Exception{
         getConnection();
         System.out.print("数据插入：");
-        String sql="insert into main values(8,'张三',100,'长沙','男',119)";
+        String sql="insert into classmate values(8,'张三',100,'长沙','男',119)";
         System.out.println("影响"+statement.executeUpdate(sql)+"行数据");
     }
     public void Updata() throws Exception{
         getConnection();
         System.out.print("数据更新：");
-        String sql="update main set name='李四' where id = 8";
+        String sql="update classmate set name='李四' where id = 8";
         System.out.println("影响"+statement.executeUpdate(sql)+"行数据");
     }
     public void Delete() throws Exception{
@@ -141,7 +141,7 @@ class UpdataDatabase extends Menus{
         System.out.print("数据删除：");
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
-        String sql="delete from main where id=?";
+        String sql="delete from classmate where id=?";
         preparedStatement=connection.prepareStatement(sql);
         preparedStatement.setInt(1,n);
         System.out.println("影响"+preparedStatement.executeUpdate()+"行数据");
@@ -149,8 +149,8 @@ class UpdataDatabase extends Menus{
     //事务
     public void Business() throws Exception{
         getConnection();
-        String sql_1="insert into main values(8,'张三',90,'长沙','男',119)";
-        String sql_2="insert into main values(9,'李四',100,'长沙','男',119)";
+        String sql_1="insert into classmate values(8,'张三',90,'长沙','男',119)";
+        String sql_2="insert into classmate values(9,'李四',100,'长沙','男',119)";
         try {
             connection.setAutoCommit(false);    //开启事务
             statement.executeUpdate(sql_1);

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--AspectJ实现AOP-->
+    <!--对象要交给spring管理-->
+
+    <!--声明目标对象-->
+    <bean id="someService" class="com.demo3.aspectj.SomeServiceImpl"/>
+    <!--声明切面类对象-->
+    <bean id="myAsepct" class="com.demo3.aspectj.MyAsepct"/>
+    <!--声明自动代理生成器：使用aspectj框架内部的功能，来创建目标对象的代理对象
+    创建代理对象是在内存中实现的，修改目标对象的内存中的结构，创建代理对象，所以目标对象就是一个被修改代理对象-->
+
+    <!--流程：读取配置文件，创建对象，首先创建了对象someService，然后创建了切面对象myAsepct。
+    然后在声明自动代理生成器时，会扫描容器中对象，然后扫描对象类中的注解，然后找到切面类，通过通知注解，找到目标类，然后找到容器中的目标对象，改造成代理对象。
+    此时的someService就成了代理对象了-->
+
+
+    <aop:aspectj-autoproxy/>
+<!--    目标类有接口时，默认使用的是jdk的动态代理，没有接口时使用的是spring框架中的CGLIB代理-->
+<!--    如果要在有接口的情况下，使用CGLIB代理，添加如下属性即可。-->
+<!--    <aop:aspectj-autoproxy proxy-target-class="true"/>-->
+
+</beans>

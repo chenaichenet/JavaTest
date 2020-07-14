@@ -35,7 +35,7 @@ public class ClassmateServiceImpl implements ClassmateService {
 
     @Override
     public int insert(Classmate classmate) {
-        int num = classmateDao.inserClassmate(classmate);
+        int num = classmateDao.insertClassmate(classmate);
         return num;
     }
 }

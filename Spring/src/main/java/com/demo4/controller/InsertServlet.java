@@ -1,4 +1,4 @@
-package web.controller;
+package com.demo4.controller;
 
 import com.demo4.domain.Classmate;
 import com.demo4.service.ClassmateService;
@@ -27,6 +27,10 @@ public class InsertServlet extends javax.servlet.http.HttpServlet {
         System.out.println(num);
 
         request.getRequestDispatcher("/result.jsp").forward(request,response);
+
+
+        /*没有完成功能，该模块是直接添加web模块，所以会出现ApplicationContext创建失败。
+        但是通过maven项目模块创建的web项目，最后也会出现，datasource的bean对象创建失败，原因不知*/
     }
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {

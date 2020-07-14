@@ -17,7 +17,7 @@
             </if>
         </where>
     </select>
-    <insert id="inserClassmate">
+    <insert id="insertClassmate">
         insert into classmate values (#{id},#{name},#{age},#{address},#{gender},#{phone})
     </insert>
 </mapper>

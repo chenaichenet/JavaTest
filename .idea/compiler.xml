@@ -13,6 +13,7 @@
     <bytecodeTargetLevel target="11">
       <module name="MyBatis" target="1.8" />
       <module name="Spring" target="1.8" />
+      <module name="spring_mybatis" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

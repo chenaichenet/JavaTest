@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userDao" class="com.demo1.impl.UserImpl"></bean>
+
+    <!--基于XML的DI实现-->
+
+    <!--声明Schoool对象-->
+    <bean id="school" class="com.demo1.impl.School">
+        <property name="name" value="大学"/>
+        <property name="address" value="大学地址"/>
+    </bean>
+
+    <!--set注入-->
+    <bean id="student1" class="com.demo1.impl.Student">
+        <property name="name" value="使用name属性的set注入"/>
+        <property name="age" value="20"/>
+        <!--引用类型-->
+        <property name="school" ref="school"/>
+    </bean>
+
+    <!--使用name属性实现构造注入-->
+    <!--使用index属性实现构造注入-->
+    <bean id="student2" class="com.demo1.impl.Student">
+        <constructor-arg name="name" value="使用name和index属性的set注入"/>
+        <constructor-arg name="age" value="20"/>
+        <constructor-arg index="2" ref="school"/>
+    </bean>
+
+    <!--引用类型的byName自动注入-->
+    <bean id="student3" class="com.demo1.impl.Student" autowire="byName">
+        <property name="name" value="byName自动注入"/>
+        <property name="age" value="20"/>
+    </bean>
+
+    <!--引用类型的byType自动注入-->
+    <bean id="student4" class="com.demo1.impl.Student" autowire="byType">
+        <property name="name" value="byType自动注入"/>
+        <property name="age" value="20"/>
+    </bean>
+</beans>

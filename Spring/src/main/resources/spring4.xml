@@ -19,10 +19,10 @@
     <!--声明数据源DataSource，连接数据库，不用再使用mybatis去自己添加连接参数-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <!--init-method，spring会自动调用该方法创建，destroy-method，spring自定调用该方法销毁-->
-<!--        <property name="url" value="jdbc:sqlserver://localhost:1433;DatabaseName=Test"/>-->
-<!--        <property name="username" value="sa"/>-->
-<!--        <property name="password" value="123456"/>-->
-<!--        <property name="maxActive" value="20"/>-->
+        <!--        <property name="url" value="jdbc:sqlserver://localhost:1433;DatabaseName=Test"/>-->
+        <!--        <property name="username" value="sa"/>-->
+        <!--        <property name="password" value="123456"/>-->
+        <!--        <property name="maxActive" value="20"/>-->
         <property name="url" value="${jdbc.url}"/>
         <property name="username" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>

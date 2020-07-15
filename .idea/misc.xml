@@ -3,13 +3,14 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/Spring" />
     <file type="web" url="file://$PROJECT_DIR$/spring_mybatis" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/MyBatis/pom.xml" />
-        <option value="$PROJECT_DIR$/Spring2/pom.xml" />
         <option value="$PROJECT_DIR$/Spring/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

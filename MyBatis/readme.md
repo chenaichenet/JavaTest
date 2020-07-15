@@ -1,0 +1,9 @@
+**Mybatis框架**
+~~~~
+main：主文件夹
+    java：源文件夹
+    resource：资源文件夹
+    webapp：web文件夹
+test：测试源文件夹
+pom.xml为依赖文件
+~~~~

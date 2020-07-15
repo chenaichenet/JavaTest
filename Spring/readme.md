@@ -1,0 +1,15 @@
+**Spring框架**  
+~~~~  
+main：主文件夹
+    java：源文件夹
+        demo1：spring的IoC，基于XML的DI实现，对应spring1.xml和TestDemo1。
+        demo2：spring的IoC，基于注解的DI实现，对应spring2.xml和TestDemo2。
+        demo3：spring的AOP，使用AspectJ实现的动态代理，对应spring3.xml和TestDemo3。
+            aspectj：使用AspectJ框架。
+            javaProxy：jdk的动态代理。
+        demo4：spring整合mybatis框架，附带web项目。
+    resource：资源文件夹
+    webapp：web文件夹
+test：测试源文件夹
+pom.xml为依赖文件
+~~~~

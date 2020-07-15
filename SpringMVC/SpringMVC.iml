@@ -36,14 +36,5 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.1.16.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.1.16.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.1.16.RELEASE" level="project" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://D:/MY/apache-tomcat-9.0.36/lib/taglibs-standard-impl-1.2.5.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
   </component>
 </module>

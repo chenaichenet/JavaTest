@@ -4,5 +4,12 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
     <!--声明组件扫描器-->
-    <context:component-scan base-package="com.demo1.controller"/>
+    <context:component-scan base-package="com.demo1.controller,com.demo2.controller,com.demo3.controller"/>
+    <!--声明springmvc框架中的视图解析器，可以帮助开发人员设置视图文件的路径-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--前缀：视图文件的路径-->
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <!--后缀：视图文件的扩展名-->
+        <property name="suffix" value=".jsp"/>
+    </bean>
 </beans>

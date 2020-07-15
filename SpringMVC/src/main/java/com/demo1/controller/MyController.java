@@ -27,21 +27,33 @@ public class MyController {
     * 返回值：ModelAndView，本次请求的处理结果，数据和视图两部分，是框架中的类
     *   Model：数据，请求处理完成后要显示给用户的数据
     *   View：视图，比如jsp等*/
-    @RequestMapping(value = "/some.do")
+    @RequestMapping(value = {"/some.do","/first.do"})
     public ModelAndView doSome(){   //doGet
         //处理some.do请求
         ModelAndView mv=new ModelAndView();
 
         //添加数据，框架在请求最后把数据放入到request作用域
         //相当于request.setAttribute("msg","Hello SpringMVC");
-        mv.addObject("msg","Hello SpringMVC");
-        mv.addObject("fun","指定doSome()方法");
+        mv.addObject("msg","第一个SpringMVC项目");
+        mv.addObject("fun","执行doSome()方法");
 
         //指定视图，完整路径
-        //框架对视图的使用执行的是forward操作，相当于request.getRequestDispatcher("/demo/show.jsp").forward(request,response);
-        mv.setViewName("/demo1/show.jsp");
+        //框架对视图的使用执行的是forward操作，相当于request.getRequestDispatcher("/WEB-INF/demo1/show.jsp").forward(request,response);
+        //mv.setViewName("/WEB-INF/demo1/show.jsp");
+
+        //通过springmvc框架中的视图解析器指定视图，可以使用逻辑名称（文件名），指定视图
+        //框架会使用视图解析器的前缀，加上逻辑名称，加上后缀来组成完整路径
+        mv.setViewName("show");
 
         //返回mv
+        return mv;
+    }
+    @RequestMapping(value = {"/other.do"})
+    public ModelAndView doOther(){   //doGet
+        ModelAndView mv=new ModelAndView();
+        mv.addObject("msg","第一个SpringMVC项目");
+        mv.addObject("fun","执行doOther()方法");
+        mv.setViewName("show");
         return mv;
     }
 }

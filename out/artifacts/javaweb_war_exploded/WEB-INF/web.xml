@@ -4,7 +4,33 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-    
+    <!--Mytest包自编项目-->
+    <servlet>
+        <servlet-name>Insert</servlet-name>
+        <servlet-class>mytest.person.web.servlet.InsertServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SelectAll</servlet-name>
+        <servlet-class>mytest.person.web.servlet.SelectAllServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SelectWhere</servlet-name>
+        <servlet-class>mytest.person.web.servlet.ServletWhereServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Insert</servlet-name>
+        <url-pattern>/Insert</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SelectAll</servlet-name>
+        <url-pattern>/SelectAll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SelectWhere</servlet-name>
+        <url-pattern>/SelectWhere</url-pattern>
+    </servlet-mapping>
+
+
     <!--servlet_filter_listener_demo-->
     <servlet>
         <servlet-name>SetServletContext</servlet-name>

@@ -1,0 +1,12 @@
+**SpringMVC框架**  
+~~~~  
+main：主文件夹
+    java：源文件夹
+        demo1：springmvc第一个项目
+        demo2：springmvc的@RequestMapping注解的使用
+        demo3：springmvc接收请求参数
+        mytest：spring+springmvc+mybatis，自编项目，查询数据库
+    resource：资源文件夹
+    webapp：web文件夹
+pom.xml为依赖文件
+~~~~

@@ -1,0 +1,4 @@
+自编项目
+整合的spring，springmvc，mybatis
+通过web对数据库进行操作
+这里可以对比另一个项目（通过传统的Servlet对数据库进行处理）

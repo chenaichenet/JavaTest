@@ -13,8 +13,9 @@ import java.util.List;
 
 public interface ClassmateDao {
     public List<Classmate> selectAll();
-    public List<Classmate> selectWhere();
+    public List<Classmate> selectWhere(int id);
     public int insertClassmate(Classmate classmate);
-    public int updateClassmate(Classmate classmate);
-    public int deleteClassmate(Classmate classmate);
+    public int updateClassmate(int id);
+    public int deleteClassmate(int id);
+
 }

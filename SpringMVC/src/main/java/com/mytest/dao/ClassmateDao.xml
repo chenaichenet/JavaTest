@@ -9,8 +9,11 @@
     <select id="selectWhere" resultType="classmate">
         select * from classmate
         <where>
+            <if test="id !=null and id>0">
+                id=#{id}
+            </if>
             <if test="name !=null and name !=''">
-                name like #{name}
+                or name like #{name}
             </if>
             <if test="age>0">
                 or age=#{age}
@@ -21,7 +24,7 @@
         insert into classmate values (#{id},#{name},#{age},#{address},#{gender},#{phone})
     </insert>
     <update id="updateClassmate">
-        update classmate set age = 100 where id={id};
+        update classmate set age = 100 where id=#{id};
     </update>
     <delete id="deleteClassmate">
         delete from classmate where id=#{id}

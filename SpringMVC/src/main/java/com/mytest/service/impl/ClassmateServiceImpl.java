@@ -28,8 +28,8 @@ public class ClassmateServiceImpl implements ClassmateService {
     }
 
     @Override
-    public List<Classmate> squeryWhere() {
-        List<Classmate> classmateList = classmateDao.selectWhere();
+    public List<Classmate> squeryWhere(int id) {
+        List<Classmate> classmateList = classmateDao.selectWhere(id);
         return classmateList;
     }
 
@@ -40,14 +40,14 @@ public class ClassmateServiceImpl implements ClassmateService {
     }
 
     @Override
-    public int update(Classmate classmate) {
-        int num = classmateDao.updateClassmate(classmate);
+    public int update(int id) {
+        int num = classmateDao.updateClassmate(id);
         return num;
     }
 
     @Override
-    public int delete(Classmate classmate) {
-        int num = classmateDao.deleteClassmate(classmate);
+    public int delete(int id) {
+        int num = classmateDao.deleteClassmate(id);
         return num;
     }
 }

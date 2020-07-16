@@ -14,5 +14,6 @@
     <h2>从request作用域获取数据</h2>
     <h3>tname数据：${tname}</h3>
     <h3>tage数据：${tage}</h3>
+    <h3>param数据：${par}</h3>
 </body>
 </html>

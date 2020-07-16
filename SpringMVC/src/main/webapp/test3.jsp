@@ -17,5 +17,19 @@
         年龄：<input type="text" name="age">
         <input type="submit" value="提交参数">
     </form>
+    <hr/>
+    <p>请求参数名和处理器方法的形参名不一致</p>
+    <form action="receiveparam.do" method="post">
+        姓名：<input type="text" name="rname"><br/>
+        年龄：<input type="text" name="rage">
+        <input type="submit" value="提交参数">
+    </form>
+    <hr/>
+    <p>使用Java对象接收请求参数</p>
+    <form action="receiveobject.do" method="post">
+        姓名：<input type="text" name="name"><br/>
+        年龄：<input type="text" name="age">
+        <input type="submit" value="提交参数">
+    </form>
 </body>
 </html>

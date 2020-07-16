@@ -7,9 +7,11 @@
  */
 package com.demo3.controller;
 
+import com.demo3.vo.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,12 +36,38 @@ public class MyController3 {
     * 而这里，把方法参数中的int age换成Integer age，使用包装类型可以解决不输入age的问题，此时的age=null*/
 
     @RequestMapping(value = {"/receiveproperty.do"},method = RequestMethod.POST)
-    public ModelAndView doOther(String name,int age){
+    public ModelAndView doReceiveproperty(String name,int age){
         ModelAndView mv=new ModelAndView();
 
         mv.addObject("tname",name);
         mv.addObject("tage",age);
 
+        mv.setViewName("show3");
+        return mv;
+    }
+
+    /*请求中参数名和处理器方法中的形参名不一样
+    * @RequestParam：在逐个接收请求参数中，解决这个问题
+    *   属性：value，请求中的参数名
+    *        required，boolean类型，默认true，表示请求中必须包含此参数
+    *   位置：在处理器方法形参名定义之前*/
+    @RequestMapping(value = {"/receiveparam.do"},method = RequestMethod.POST)
+    public ModelAndView doReceiveparam(@RequestParam(value = "rname",required = true) String name,@RequestParam(value = "rage") int age){
+        ModelAndView mv=new ModelAndView();
+        mv.addObject("tname",name);
+        mv.addObject("tage",age);
+        mv.setViewName("show3");
+        return mv;
+    }
+    /*处理器方法形参是Java对象，对象属性名和请求参数名一样
+    * 框架会创建形参的Java对象，给属性赋值
+    * 请求中的参数名是name，框架会调用setName()*/
+    @RequestMapping(value = {"/receiveobject.do"},method = RequestMethod.POST)
+    public ModelAndView doReceiveobject(Param param){
+        ModelAndView mv=new ModelAndView();
+        mv.addObject("tname",param.getName());
+        mv.addObject("tage",param.getAge());
+        mv.addObject("par",param);
         mv.setViewName("show3");
         return mv;
     }

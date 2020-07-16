@@ -17,7 +17,6 @@
   </properties>
 
   <dependencies>
-    <!--测试依赖-->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -36,15 +35,75 @@
       <artifactId>spring-webmvc</artifactId>
       <version>5.1.16.RELEASE</version>
     </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>5.2.6.RELEASE</version>
+    </dependency>
+    <!--监听器对象的依赖-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>5.2.6.RELEASE</version>
+    </dependency>
+    <!--MyBatis依赖-->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.5.3</version>
+    </dependency>
+    <!--mybatis和spring集成的依赖-->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>1.3.3</version>
+    </dependency>
+    <!--sql数据库驱动-->
+    <dependency>
+      <groupId>com.microsoft.sqlserver</groupId>
+      <artifactId>mssql-jdbc</artifactId>
+      <version>8.3.1.jre14-preview</version>
+    </dependency>
+    <!--阿里公司的数据库连接池-->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>1.1.12</version>
+    </dependency>
+    <!--jsp依赖-->
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>jsp-api</artifactId>
+      <version>2.2.1-b03</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
+    <!-- 如果不添加此节点mybatis的mapper.xml文件都会被漏掉。 -->
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
+        <filtering>false</filtering>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
+        <filtering>false</filtering>
+      </resource>
+    </resources>
+    <!--指定jdk版本-->
     <plugins>
-      <!--编码和编译的JDK版本-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.0</version>
         <configuration>
           <source>1.8</source>
           <target>1.8</target>

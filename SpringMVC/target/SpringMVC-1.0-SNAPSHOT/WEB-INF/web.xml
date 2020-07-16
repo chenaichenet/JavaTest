@@ -25,7 +25,7 @@
             <!--springmvc的配置文件的位置的属性-->
             <param-name>contextConfigLocation</param-name>
             <!--指定自定义文件路径-->
-            <param-value>classpath:spirngmvc.xml</param-value>
+            <param-value>classpath:springmvc.xml</param-value>
         </init-param>
         <!--在tomcat启动后就创建Servlet对象
             load-on-startup：启动时进行加载，表示tomcat启动后创建对象的顺序-->
@@ -65,4 +65,15 @@
         <filter-name>characterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+
+    <!--mytest包中的项目需要-->
+    <!--注册监听器-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:springmvc.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 </web-app>

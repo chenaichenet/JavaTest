@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--mytest包项目需要用到-->
+    <!--加载配置文件-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!--声明数据源DataSource-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="maxActive" value="20"/>
+    </bean>
+    <!--创建SqlSessionFactoryBean类对象-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:mybatis.xml"/>
+    </bean>
+    <!--创建dao对象-->
+    <bean id="configurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <property name="basePackage" value="com.mytest.dao"/>
+    </bean>
+    <!--声明service-->
+    <bean id="classmateService" class="com.mytest.service.impl.ClassmateServiceImpl">
+        <property name="classmateDao" ref="classmateDao"/>
+    </bean>
+    <!--声明classmate对象-->
+    <bean id="classmate" class="com.mytest.domain.Classmate">
+        <property name="age" value="20"/>
+    </bean>
+
+
+    <!--声明组件扫描器-->
+    <context:component-scan base-package="com.demo1.controller,com.demo2.controller,com.demo3.controller,com.mytest.controller"/>
+    <!--声明springmvc框架中的视图解析器，可以帮助开发人员设置视图文件的路径-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--前缀：视图文件的路径-->
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <!--后缀：视图文件的扩展名-->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+</beans>

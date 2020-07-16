@@ -12,7 +12,15 @@
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="web application context" name="MVC application context" removed="true">
+          <file>file://$MODULE_DIR$/src/main/resources/springmvc.xml</file>
+        </fileset>
+        <fileset id="web springmvc servlet context" name="MVC springmvc servlet context" removed="true" />
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spirngmvc.xml</file>
+        </fileset>
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
@@ -25,6 +33,15 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/MY/apache-tomcat-9.0.36/lib/taglibs-standard-impl-1.2.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.10" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.1" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:4.0.1" level="project" />
@@ -35,6 +52,13 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-core:5.1.16.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.1.16.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.1.16.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-web:5.1.16.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:5.2.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.2.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-web:5.2.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.mybatis:mybatis:3.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.mybatis:mybatis-spring:1.3.3" level="project" />
+    <orderEntry type="library" name="Maven: com.microsoft.sqlserver:mssql-jdbc:8.3.1.jre14-preview" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:druid:1.1.12" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet.jsp:jsp-api:2.2.1-b03" level="project" />
   </component>
 </module>

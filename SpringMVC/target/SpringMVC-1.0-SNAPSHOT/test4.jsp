@@ -13,14 +13,40 @@
     <script type="text/javascript">
         $(function () {
             $("button").click(function () {
-                alert("button click");
+                // alert("button click");
+                /*ajax函数*/
+                $.ajax({
+                    /*参数*/
+                    //url:"returnVoid-ajax.do",//返回void
+                    //url:"returnParamJson.do",//返回单个对象
+                    url:"returnParamJsonArray.do",
+                    data:{
+                        name:"张三",
+                        age:30
+                    },
+                    type:"post",
+                    //数据格式
+                    //加也行，不加也行，因为在Controller中已经标明了类型：response.setContentType("application/json;charset=utf-8");
+                    //jquery会尝试把数据转换成json
+                    dataType:"json",
+                    success:function (resp) {
+                        //resp从服务器端返回的是json格式的字符串{"name":"张三","age":20}
+                        //jquery会把字符串转为json对象，赋值给resp形参
+                        // alert(resp);
+                        //alert(resp.name+" "+resp.age)//返回void和单个对象时
+                        //返回List时
+                        $.each(resp,function (i,n) {    //n是对象
+                            alert(n.name+" "+n.age)
+                        })
+                    }
+                })
             })
         })
     </script>
 </head>
 <body>
     <p>处理器方法返回String——表示视图名称</p>
-    <form action="retrunString-view.do" method="post">
+    <form action="returnString-view.do" method="post">
         姓名：<input type="text" name="name"><br/>
         年龄：<input type="text" name="age">
         <input type="submit" value="提交参数">

@@ -90,7 +90,7 @@ public class MyTestController {
         Classmate classmate=new Classmate(cla.getId(),cla.getName(),cla.getAge(),cla.getAddress(),cla.getGender(),cla.getPhone());
         ClassmateService classmateService = (ClassmateService) context.getBean("classmateService");
         int num = classmateService.insert(classmate);
-
+        doSelectAll();
         modelAndView.addObject("msg","影响"+num+"行数据");
         modelAndView.setViewName("result");
         return modelAndView;
@@ -99,7 +99,7 @@ public class MyTestController {
     public ModelAndView doUpdate(int sid){
         ClassmateService classmateService = (ClassmateService) context.getBean("classmateService");
         int num = classmateService.update(sid);
-
+        doSelectAll();
         modelAndView.addObject("msg","影响"+num+"行数据");
         modelAndView.setViewName("result");
         return modelAndView;
@@ -108,7 +108,7 @@ public class MyTestController {
     public ModelAndView doDelete(int sid){
         ClassmateService classmateService = (ClassmateService) context.getBean("classmateService");
         int num = classmateService.delete(sid);
-
+        doSelectAll();
         modelAndView.addObject("msg","影响"+num+"行数据");
         modelAndView.setViewName("result");
         return modelAndView;

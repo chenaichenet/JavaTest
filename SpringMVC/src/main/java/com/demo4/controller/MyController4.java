@@ -26,7 +26,7 @@ import java.util.List;
 @Controller
 public class MyController4 {
     /*处理器方法返回String——表示逻辑视图名称，需要配置视图解析器*/
-    @RequestMapping(value = {"/returnString-view.do"})
+    @RequestMapping(value = {"/returnString-view"})
     public String doRetrunView(HttpServletRequest request, String name, int age){
         //可以手动添加数据到request域
         request.setAttribute("tname",name);
@@ -36,7 +36,7 @@ public class MyController4 {
     }
     /*处理器方法返回String——表示完整视图名称，此时不能配置视图解析器
     * 此时如果配置的视图解析器，会出现404错误，转发地址重复了——WEB-INF/jsp/WEB-INF/jsp/show2.jsp.jsp*/
-    @RequestMapping(value = {"/returnString-view2.do"})
+    @RequestMapping(value = {"/returnString-view2"})
     public String doRetrunView2(HttpServletRequest request, String name, int age){
         //可以手动添加数据到request域
         request.setAttribute("tname",name);
@@ -46,7 +46,7 @@ public class MyController4 {
     }
     /*返回void，响应Ajax请求
     * 手工实现Ajax，json数据：代码有重复的：1、Java对象转为json；2、通过HttpServletResponse输出json数据*/
-    @RequestMapping(value = {"/returnVoid-ajax.do"})
+    @RequestMapping(value = {"/returnVoid-ajax"})
     public void doRetrunVoid(HttpServletResponse response, String name, int age) throws IOException {
         //处理Ajax，使用json做数据的格式
         //service调用完成了，使用Param表示处理结果
@@ -75,7 +75,7 @@ public class MyController4 {
     *       最后是MappingJackson2HttpMessageConverter这个返回ture。
     *   2、框架会调用实现类的write()，把param对象转为json，调用的是jackson中的ObjectMapper实现。
     *   3、框架会调用@ResponseBody的功能，把步骤2的结果输出到浏览器。*/
-    @RequestMapping(value = {"/returnParamJson.do"})
+    @RequestMapping(value = {"/returnParamJson"})
     @ResponseBody
     public Param doParamJsonObject(String name, int age){
         //调用service，获取请求的数据，Param对象表示结果数据
@@ -85,7 +85,7 @@ public class MyController4 {
         return param;   //对象会被框架转为json
     }
     /*处理器方法返回List<Param>*/
-    @RequestMapping(value = {"/returnParamJsonArray.do"})
+    @RequestMapping(value = {"/returnParamJsonArray"})
     @ResponseBody
     public List<Param> doParamJsonObjectArray(String name, int age){
         List<Param> list=new ArrayList<>();
@@ -107,7 +107,7 @@ public class MyController4 {
     *
     * 响应头（text/plain;charaset=ISO-8859-1）编码默认使用的是ISO-8859-1编码，所以中文会出现乱码
     * 在@RequestMapping中使用produces属性，可以指定编码*/
-    @RequestMapping(value = "/returnStringData.do",produces = "text/plain;charaset=utf-8")
+    @RequestMapping(value = "/returnStringData",produces = "text/plain;charaset=utf-8")
     @ResponseBody
     public String doStringData(String name,int age){
         return "Hello SpringMVC 返回对象，表示数据";

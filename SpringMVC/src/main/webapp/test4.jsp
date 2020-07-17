@@ -17,10 +17,10 @@
                 /*ajax函数*/
                 $.ajax({
                     /*参数*/
-                    //url:"returnVoid-ajax.do",//返回void
-                    //url:"returnParamJson.do",//返回单个对象
-                    // url:"returnParamJsonArray.do",//返回List集合
-                    url:"resutnStringData.do",//返回String表示数据
+                    //url:"returnVoid-ajax",//返回void
+                    //url:"returnParamJson",//返回单个对象
+                    // url:"returnParamJsonArray",//返回List集合
+                    url:"resutnStringData",//返回String表示数据
                     data:{
                         name:"张三",
                         age:30
@@ -55,12 +55,14 @@
 </head>
 <body>
     <p>处理器方法返回String——表示视图名称</p>
-    <form action="returnString-view.do" method="post">
+    <form action="returnString-view" method="post">
         姓名：<input type="text" name="name"><br/>
         年龄：<input type="text" name="age">
         <input type="submit" value="提交参数">
     </form>
     <hr/>
     <button id="btn">发起ajax请求</button>
+    <hr/>
+    <img src="images/001.jpg" alt="图片">
 </body>
 </html>

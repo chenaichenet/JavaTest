@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    <!--注册springmvc的核心对象DispatcherServlet
+    <!--注册springmvc的核心对象DispatcherServlet，中央调度器
         需要在tomcat服务器启动后，创建DispatcherServlet对象的实例
         因为DispatcherServlet在创建过程中会同时创建springmvc容器对象
         会读取springmvc配置文件，把配置文件中的对象都创建好，但用户发起请求时，可以直接使用对象
@@ -37,7 +37,8 @@
             1、使用扩展名，语法*.xxx，xxx是自定义扩展名。如*.do，*.action等
                 http://localhost:8080/spring/some.do，都结果springmvc来处理。
             2、使用斜杠“/”-->
-        <url-pattern>*.do</url-pattern>
+<!--        <url-pattern>*.do</url-pattern>-->
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <!--声明框架中提供的过滤器，用于解决demo3中提到的中文乱码问题-->

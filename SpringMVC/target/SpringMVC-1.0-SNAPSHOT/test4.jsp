@@ -17,9 +17,10 @@
                 /*ajax函数*/
                 $.ajax({
                     /*参数*/
-                    //url:"returnVoid-ajax.do",//返回void
-                    //url:"returnParamJson.do",//返回单个对象
-                    url:"returnParamJsonArray.do",
+                    //url:"returnVoid-ajax",//返回void
+                    //url:"returnParamJson",//返回单个对象
+                    // url:"returnParamJsonArray",//返回List集合
+                    url:"resutnStringData",//返回String表示数据
                     data:{
                         name:"张三",
                         age:30
@@ -33,11 +34,19 @@
                         //resp从服务器端返回的是json格式的字符串{"name":"张三","age":20}
                         //jquery会把字符串转为json对象，赋值给resp形参
                         // alert(resp);
-                        //alert(resp.name+" "+resp.age)//返回void和单个对象时
-                        //返回List时
-                        $.each(resp,function (i,n) {    //n是对象
-                            alert(n.name+" "+n.age)
-                        })
+
+                        /*返回void和单个对象时*/
+                        //alert(resp.name+" "+resp.age)
+
+                        /*返回List时*/
+                        // $.each(resp,function (i,n) {    //n是对象
+                        //     alert(n.name+" "+n.age)
+                        // })
+
+                        /*返回的String数据
+                        * 此时需要把上面的dataTyupe="json"注释掉，或者改成dataType="text"
+                        * 否则会出现解析json数据时出现错误*/
+                        alert("返回的是文本数据："+resp);
                     }
                 })
             })
@@ -46,12 +55,14 @@
 </head>
 <body>
     <p>处理器方法返回String——表示视图名称</p>
-    <form action="returnString-view.do" method="post">
+    <form action="returnString-view" method="post">
         姓名：<input type="text" name="name"><br/>
         年龄：<input type="text" name="age">
         <input type="submit" value="提交参数">
     </form>
     <hr/>
     <button id="btn">发起ajax请求</button>
+    <hr/>
+    <img src="images/001.jpg" alt="图片">
 </body>
 </html>

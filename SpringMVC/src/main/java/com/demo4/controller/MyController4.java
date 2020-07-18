@@ -32,7 +32,7 @@ public class MyController4 {
         request.setAttribute("tname",name);
         request.setAttribute("tage",age);
         //show：逻辑视图名称
-        return "show3";
+        return "show";
     }
     /*处理器方法返回String——表示完整视图名称，此时不能配置视图解析器
     * 此时如果配置的视图解析器，会出现404错误，转发地址重复了——WEB-INF/jsp/WEB-INF/jsp/show2.jsp.jsp*/
@@ -42,7 +42,7 @@ public class MyController4 {
         request.setAttribute("tname",name);
         request.setAttribute("tage",age);
         //show：逻辑视图名称
-        return "/WEB-INF/jsp/show3";
+        return "/WEB-INF/jsp/show";
     }
     /*返回void，响应Ajax请求
     * 手工实现Ajax，json数据：代码有重复的：1、Java对象转为json；2、通过HttpServletResponse输出json数据*/

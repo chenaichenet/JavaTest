@@ -12,6 +12,7 @@ public class CodingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         String username=request.getParameter("username");
+        //输出到页面
         response.getWriter().println(username);
     }
 

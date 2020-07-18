@@ -42,7 +42,7 @@ public class MyController3 {
         mv.addObject("tname",name);
         mv.addObject("tage",age);
 
-        mv.setViewName("show3");
+        mv.setViewName("show");
         return mv;
     }
 
@@ -56,7 +56,7 @@ public class MyController3 {
         ModelAndView mv=new ModelAndView();
         mv.addObject("tname",name);
         mv.addObject("tage",age);
-        mv.setViewName("show3");
+        mv.setViewName("show");
         return mv;
     }
     /*处理器方法形参是Java对象，对象属性名和请求参数名一样
@@ -68,7 +68,7 @@ public class MyController3 {
         mv.addObject("tname",param.getName());
         mv.addObject("tage",param.getAge());
         mv.addObject("par",param);
-        mv.setViewName("show3");
+        mv.setViewName("show");
         return mv;
     }
 }

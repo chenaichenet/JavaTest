@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>处理器方法的返回值</title>
+    <%--这个标签必须有头有尾--%>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript">
         $(function () {

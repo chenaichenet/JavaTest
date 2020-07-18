@@ -67,12 +67,11 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-
     <!--mytest包中的项目需要-->
-    <!--注册监听器-->
+    <!--注册spring的监听器-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:springmvc.xml</param-value>
+        <param-value>classpath:spring.xml</param-value>
     </context-param>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

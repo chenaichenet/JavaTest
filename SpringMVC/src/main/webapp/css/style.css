@@ -1,0 +1,139 @@
+*{
+	padding: 0;
+	margin: 0; 
+}
+
+html{
+	height: 100%;
+	width: 100%;
+}
+
+body{
+	width: 100%;
+	height: auto;
+	background-image: linear-gradient(to bottom right,rgb(114,135,254),rgb(130,88,186));
+}
+
+body .login-container{
+	width: 50%;
+	height: 100%;
+	margin: 10% 0% 10% 25% ;
+	border-radius: 15px;
+	box-shadow: 0 10px 50px 0px rgb(59,45,159);
+	background-color: rgb(95,76,194);
+}
+
+body .login-container .left-container{
+	display: inline-block;
+	width: 51%;
+	height: 100%;
+	border-radius: 15px;
+	padding: 50px;
+	background-image: linear-gradient(to bottom right,rgb(118,76,163),rgb(92,103,211));
+}
+
+body .login-container .left-container .title{
+	color: #fff;
+	font-size: 18px;
+	font-weight: 200;
+}
+
+body .login-container .left-container .title span{
+	border-bottom: 3px solid rgb(237,221,22);
+}
+
+body .login-container .left-container .input-container{
+	padding: 20px 0;
+}
+
+body .login-container .left-container .input-container input{
+	border: 0;
+	background:none;
+	outline: 0;
+	color: #fff;
+	margin: 20px 0px;
+	display: block;
+	width: 100%;
+	padding: 5px 0;
+	border-bottom: 1px solid rgb(199,191,219);
+}
+
+body .login-container .left-container .input-container input :hover{
+	border-bottom-color: #fff;
+}
+
+::-webkit-input-placeholder{
+	color: rgb(199,191,219) ;
+}
+
+body .login-container .left-container .message-container{
+	font-size: 14px;
+	transition: .2s;
+	color: rgb(199,191,219);
+	cursor: pointer;
+}
+
+body .login-container .left-container .message-container :hover{
+	color: #fff;
+}
+
+body .login-container .right-container{
+	width: 20%;
+	display: inline-block;
+	height: 100%;
+	vertical-align: top;
+	margin: 7% 0% 1% 11% ;
+	/* padding: 7% 0% 1% 6%; */
+}
+
+body .login-container .right-container .regist-container{
+	text-align: center;
+	color: #fff;
+	font-size:18px;
+	font-weight:200 ;
+}
+
+body .login-container .right-container .regist-container span1{
+	border-bottom: 3px solid rgb(237,221,22);
+}
+
+body .login-container .regist-container .action-container{
+	color: #fff;
+	height: 10%;
+} 
+
+body .login-container .right-container .regist-container span2{
+	border: 2px solid rgb(223,221,22);
+	padding: 10px;
+	display: inline;
+	border-radius: 15px;
+	position: relative;
+	left: -32%;
+	bottom: -145px;
+	transition: .2s;
+	cursor: pointer;
+	color: #fff;
+}
+
+body .login-container .regist-container .action-container span2{
+	background-color: rgb(237,221,22);
+	color: rgb(95,76,194);
+} 
+
+/* body .login-container .right-container .regist-container .action-container span {
+	border: 2px solid rgb(223,221,22);
+	padding: 10px;
+	display: inline;
+	border-radius: 15px;
+	position: relative;
+	left: 34%;
+	bottom: -145px;
+	transition: .2s;
+	cursor: pointer;
+	color: #fff;
+}
+
+body .login-container .right-container .regist-container .action-container span:hover {
+	background-color: rgb(237,221,22);
+	color: rgb(95,76,194);
+} */

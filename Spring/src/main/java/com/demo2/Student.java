@@ -22,8 +22,8 @@ public class Student {
 
     @Autowired(required = true)
 //    @Qualifier(value = "school")
-
     private School school;
+
     public Student() {
         System.out.println("=====Student无参构造=====");
     }

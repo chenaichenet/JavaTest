@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>SSM</title>
+    <title>SSM——数据库增删改查</title>
 </head>
 <body>
     <a href="selectAll.do">查询所有</a>
@@ -53,8 +53,34 @@
         </table>
     </form>
     <hr/>
+    <p>更新</p>
     <form action="update.do">
-        按id修改：<input type="text" name="sid"><input type="submit" value="修改">
+        <table>
+            <tr>
+                <td>ID</td>
+                <td><input type="text" name="id"></td>
+            </tr>
+            <tr>
+                <td>姓名</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>年龄</td>
+                <td><input type="text" name="age"></td>
+            </tr>
+            <tr>
+                <td>地址</td>
+                <td><input type="text" name="address"></td>
+            </tr>
+            <tr>
+                <td>手机号</td>
+                <td><input type="text" name="phone"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" name="更新"></td>
+            </tr>
+        </table>
     </form>
     <hr/>
     <form action="delete.do">

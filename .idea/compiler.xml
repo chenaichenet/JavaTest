@@ -7,8 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Spring" />
-        <module name="MyBatis" />
         <module name="SpringMVC" />
+        <module name="MyBatis" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

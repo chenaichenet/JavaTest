@@ -11,15 +11,23 @@ package com.mytest.service.impl;
 import com.mytest.dao.ClassmateDao;
 import com.mytest.domain.Classmate;
 import com.mytest.service.ClassmateService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class ClassmateServiceImpl implements ClassmateService {
+    //引用类型自动注入
+    @Autowired
     private ClassmateDao classmateDao;
-
-    public void setClassmateDao(ClassmateDao classmateDao) {
-        this.classmateDao = classmateDao;
-    }
+//    这里采用了自动赋值，加上注解@Service和@Autowired，在spring.xml中去掉
+//      <property name="classmateDao" ref="classmateDao"/>这一句即可
+//    不需要再手动赋值
+//    public void setClassmateDao(ClassmateDao classmateDao) {
+//        System.out.println("========================引用类型========================");
+//        this.classmateDao = classmateDao;
+//    }
 
     @Override
     public List<Classmate> squeryAll() {
@@ -40,8 +48,8 @@ public class ClassmateServiceImpl implements ClassmateService {
     }
 
     @Override
-    public int update(int id) {
-        int num = classmateDao.updateClassmate(id);
+    public int update(Classmate classmate) {
+        int num = classmateDao.updateClassmate(classmate);
         return num;
     }
 

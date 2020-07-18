@@ -16,6 +16,6 @@ public interface ClassmateService {
     List<Classmate> squeryAll();
     List<Classmate> squeryWhere(int id);
     int insert(Classmate classmate);
-    int update(int id);
+    int update(Classmate classmate);
     int delete(int id);
 }

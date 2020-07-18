@@ -24,7 +24,23 @@
         insert into classmate values (#{id},#{name},#{age},#{address},#{gender},#{phone})
     </insert>
     <update id="updateClassmate">
-        update classmate set age = 100 where id=#{id};
+        update classmate
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="age>0">
+                age = #{age},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="phone!=0 and phone != ''">
+                phone = #{phone},
+            </if>
+            id = #{id}
+        </set>
+        where id = #{id}
     </update>
     <delete id="deleteClassmate">
         delete from classmate where id=#{id}

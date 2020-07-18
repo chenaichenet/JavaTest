@@ -40,5 +40,9 @@
             <!--声明拦截对象-->
             <bean class="com.demo7.handler.MyInterceptor"/>
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/doLogin.do"/>
+            <bean class="com.demo8.handler.MyInterceptor"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 </beans>

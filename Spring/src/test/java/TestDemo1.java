@@ -40,5 +40,10 @@ public class TestDemo1 {
         Student student4 = (Student) app.getBean("student4");   //byType
         System.out.println(student4);
     }
+    @Test
+    public void Test4(){
+        Student student2=(Student) app.getBean("student5");
+        System.out.println(student2);
+    }
 
 }

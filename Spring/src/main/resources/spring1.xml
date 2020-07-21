@@ -40,4 +40,12 @@
         <property name="name" value="byType自动注入"/>
         <property name="age" value="20"/>
     </bean>
+
+    <!--使用SpEL-->
+    <bean id="student5" class="com.demo1.impl.Student" autowire="byType">
+        <!--引用某个bean的属性-->
+        <property name="name" value="#{student1.name}"/>
+        <property name="age" value="#{12+88}"/>
+    </bean>
+
 </beans>

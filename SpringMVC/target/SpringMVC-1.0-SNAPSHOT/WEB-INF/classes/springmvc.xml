@@ -31,7 +31,8 @@
             mapping：表示对该资源的请求，以/images/开始的请求，如/images/beauty.jpg等。注意后面是两个*号。-->
 <!--    <mvc:resources location="/images/" mapping="/images/**"/>-->
     
-    <!--声明拦截器，拦截器可以有多个-->
+    <!--声明拦截器，拦截器可以有多个
+        在框架中保存多个拦截器是ArrayList，按照声明的先后顺序-->
     <mvc:interceptors>
         <mvc:interceptor>
             <!--指定拦截的请求uri地址-->
@@ -39,5 +40,15 @@
             <!--声明拦截对象-->
             <bean class="com.demo7.handler.MyInterceptor"/>
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/doLogin.do"/>
+            <bean class="com.demo8.handler.MyInterceptor"/>
+        </mvc:interceptor>
     </mvc:interceptors>
+
+    <!--文件上传：配置文件解析器对象-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--总大小-->
+        <property name="maxUploadSize" value="10240"/>
+    </bean>
 </beans>

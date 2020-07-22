@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf的使用</title>
+</head>
+<body>
+    <h3>成功</h3>
+    <!--直接访问，显示的是“欢迎信息”，而经过模板解析，显示的是后台的数据“你好”-->
+    <div th:text="${hello}">欢迎信息</div>
+    <div th:utext="${hello}"></div>
+    <hr/>
+    <!--th:each，每次遍历都会生成当前标签：2个h4-->
+    <h4 th:text="${user}" th:each="user:${users}"></h4>
+    <hr/>
+    <h4>
+        <!--2个span-->
+        <span th:each="user:${users}">[[${user}]]</span>
+    </h4>
+</body>
+</html>

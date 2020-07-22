@@ -5,7 +5,7 @@
       <element id="javaee-facet-resources" facet="SpringBoot/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="SpringBoot" />
+          <element id="module-output" name="Spring Boot" />
         </element>
       </element>
     </root>

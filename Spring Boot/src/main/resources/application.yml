@@ -1,0 +1,43 @@
+#server:
+#  port: 8080
+#  servlet:
+#    context-path: /SpringBoot
+debug: true
+spring:
+  profiles:
+    #激活
+    active: dev
+  datasource:
+    driver-class-name: com.alibaba.druid.proxy.DruidDriver
+    url: jdbc:sqlserver://localhost:1433;DatabaseName=Test
+    username: sa
+    password: 123456
+
+mybatis:
+  #实体类别名
+  type-aliases-package: com.spirngboot.domain
+  #映射文件路径，一般不使用xml文件了
+#  mapper-locations: classpath:mapper/*.xml
+  #日志实现
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+testbean:
+  name: 测试
+  age: 20
+  birth: 2020/7/11
+  maps: {k1: 1,k2: 12}
+  lists:
+    - 张三
+    - 李四
+  testbean1:
+    tname: ${testbean.hello:测试}2
+    tage: ${random.int}
+
+jdbc:
+  driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  url: jdbc:sqlserver://localhost:1433;DatabaseName=Test
+  username: sa
+  password: 123456
+

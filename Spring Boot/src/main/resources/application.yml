@@ -8,7 +8,7 @@ spring:
     #激活
     active: dev
   datasource:
-    driver-class-name: com.alibaba.druid.proxy.DruidDriver
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
     url: jdbc:sqlserver://localhost:1433;DatabaseName=Test
     username: sa
     password: 123456

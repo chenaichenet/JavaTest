@@ -29,6 +29,11 @@ public class TestController {
     @Autowired
     private ClassmateService classmateService;
 
+    @RequestMapping({"/","/index.html"})
+    public String index(){
+        return "index";
+    }
+
     @GetMapping("hello")
     @ResponseBody
     public String hello(){

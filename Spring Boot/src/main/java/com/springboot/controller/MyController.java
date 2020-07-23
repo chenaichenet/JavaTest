@@ -9,7 +9,6 @@ package com.springboot.controller;
 
 import com.springboot.domain.Classmate;
 import com.springboot.service.ClassmateService;
-import jdk.jfr.Description;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

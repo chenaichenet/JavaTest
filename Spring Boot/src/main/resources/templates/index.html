@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Boot</title>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <link rel="bookmark" href="/favicon.ico"/>
+</head>
+<body>
+    <h1 align="center" th:text="#{index.tip}">Spring Boot</h1>
+    <p style="display: block" align="center"><a th:href="@{/index.html(l='zh_CN')}">中文</a></p>
+    <p style="display: block" align="center"><a th:align="center" th:href="@{/index.html(l='en_US')}">English</a></p>
+    <hr/>
+</body>
+</html>

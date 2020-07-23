@@ -1,0 +1,26 @@
+mybatis:
+  #\u5B9E\u4F53\u7C7B\u522B\u540D
+  type-aliases-package: com.spirngboot.domain
+  #\u6620\u5C04\u6587\u4EF6\u8DEF\u5F84\uFF0C\u4E00\u822C\u4E0D\u4F7F\u7528xml\u6587\u4EF6\u4E86
+  #  mapper-locations: classpath:mapper/*.xml
+  #\u65E5\u5FD7\u5B9E\u73B0
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+testbean:
+  name: \u6D4B\u8BD5
+  age: 20
+  birth: 2020/7/11
+  maps: {k1: 1,k2: 12}
+  lists:
+    - \u5F20\u4E09
+    - \u674E\u56DB
+  testbean1:
+    tname: ${testbean.hello:\u6D4B\u8BD5}2
+    tage: ${random.int}
+
+jdbc:
+  driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  url: jdbc:sqlserver://localhost:1433;DatabaseName=Test
+  username: sa
+  password: 123456

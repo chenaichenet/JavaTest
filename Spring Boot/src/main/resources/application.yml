@@ -12,6 +12,10 @@ spring:
     url: jdbc:sqlserver://localhost:1433;DatabaseName=Test
     username: sa
     password: 123456
+  thymeleaf:
+    #模板热部署、禁用thymeleaf缓存
+    cache: false
+
 
 mybatis:
   #实体类别名

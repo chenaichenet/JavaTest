@@ -1,6 +1,8 @@
 package com.springboot;
 
+import com.springboot.domain.Classmate;
 import com.springboot.domain.Testbean;
+import com.springboot.service.ClassmateService;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
 import javax.sql.DataSource;
+import java.util.List;
 
 
 @SpringBootTest
@@ -21,6 +24,9 @@ class ApplicationTests {
 
     @Autowired
     DataSource dataSource;
+
+    @Autowired
+    ClassmateService service;
 
     //记录器
     Logger logger= LoggerFactory.getLogger(getClass());
@@ -52,7 +58,15 @@ class ApplicationTests {
 
     //测试数据源
     @Test
-    public void TestDataSource(){
+    public void testDataSource(){
         System.out.println(dataSource);
     }
+
+    //测试通用mapper
+    @Test
+    public void testSelectAll(){
+        List<Classmate> classmateList = service.queryAll();
+        classmateList.forEach(classmate -> System.out.println(classmate));
+    }
+
 }

@@ -70,7 +70,6 @@ public class MyTestController {
 //    }
     @RequestMapping(value = "/selectWhere.do")
     public ModelAndView doSelectWhere(int sid){
-
         List<Classmate> classmateList = service.squeryWhere(sid);
         System.out.println("=====");
         System.out.println(classmateList);
@@ -104,7 +103,7 @@ public class MyTestController {
         Classmate classmate=new Classmate(cla.getId(),cla.getName(),cla.getAge(),cla.getAddress(),cla.getGender(),cla.getPhone());
         int num = service.insert(classmate);
         doSelectAll();
-        modelAndView.addObject("msg","影响"+num+"行数据");
+            modelAndView.addObject("msg","影响"+num+"行数据");
         modelAndView.setViewName("result");
         return modelAndView;
     }

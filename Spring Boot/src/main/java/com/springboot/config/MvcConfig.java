@@ -18,13 +18,13 @@ public class MvcConfig implements WebMvcConfigurer {
     //注册拦截器
     @Bean
     public TestInterceptor testInterceptor(){
-        System.out.println("12345");
+        System.out.println("注册拦截器");
         return new TestInterceptor();
     }
     //添加拦截器到springmvc拦截器链
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        System.out.println("09876");
+        System.out.println("拦截所有请求路径");
         //拦截所有请求路径
         registry.addInterceptor(testInterceptor()).addPathPatterns("/*");
     }

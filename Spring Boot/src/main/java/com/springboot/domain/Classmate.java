@@ -7,13 +7,19 @@
  */
 package com.springboot.domain;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="classmate")
 public class Classmate {
-    private int id;
+    //标识主键
+    @Id
+    private Integer id;
     private String name;
-    private int age;
+    private Integer age;
     private String address;
     private String gender;
-    private int phone;
+    private Integer phone;
 
     @Override
     public String toString() {
@@ -30,11 +36,11 @@ public class Classmate {
     public Classmate() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -46,11 +52,11 @@ public class Classmate {
         this.name = name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -70,11 +76,11 @@ public class Classmate {
         this.gender = gender;
     }
 
-    public int getPhone() {
+    public Integer getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(Integer phone) {
         this.phone = phone;
     }
 }

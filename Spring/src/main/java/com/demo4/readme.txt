@@ -1,0 +1,4 @@
+spring实现对数据库的操作
+这里使用的还是servlet，不是controller，和JavaWeb一样
+使用servlet的缺点很明显，数据库的操作需要对应多个servlet
+而在下面使用controller，就可以在一个类中，定义完所有的操作方法

@@ -10,8 +10,11 @@ package com.demo4.service.impl;
 import com.demo4.dao.ClassmateDao;
 import com.demo4.domain.Classmate;
 import com.demo4.service.ClassmateService;
+import org.springframework.jdbc.core.JdbcTemplate;
 
+import javax.sql.DataSource;
 import java.util.List;
+import java.util.Map;
 
 public class ClassmateServiceImpl implements ClassmateService {
     //引用类型

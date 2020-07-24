@@ -2,8 +2,6 @@ package com.demo4.controller;
 
 import com.demo4.domain.Classmate;
 import com.demo4.service.ClassmateService;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 

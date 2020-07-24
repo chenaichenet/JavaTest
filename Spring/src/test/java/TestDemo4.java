@@ -1,18 +1,25 @@
+import com.alibaba.druid.pool.DruidDataSource;
 import com.demo4.dao.ClassmateDao;
 import com.demo4.domain.Classmate;
 import com.demo4.service.ClassmateService;
+import com.demo4.service.impl.ClassmateServiceImpl;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 
+import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
 
 /**
  * FileName: TestDemo4
@@ -24,6 +31,7 @@ import java.util.List;
 
 public class TestDemo4 {
     ApplicationContext app=new ClassPathXmlApplicationContext("spring4.xml");
+
     @Test
     public void Test(){
         //获取容器中对象的名称
@@ -71,5 +79,42 @@ public class TestDemo4 {
         Classmate classmate=new Classmate(100,"测试",100,"地址","性别",1100);
         int num = classmateService.insert(classmate);
         System.out.println(num);
+    }
+
+    /**
+     * 使用JdbcTemplate，这里提供了方法模板，可以不用自定义操作方法
+     * 可以把注意力放在sql语句的拼接上
+     */
+    @Test
+    public void testjdbcTemplate(){
+        //使用spring中定义的数据源，这样的方法，虽然可行，但是，在多种操作时，会出现反复为 jdbcTemplate.setDataSource(dataSource);
+        //可以采用配置文件方式，在spring配置文件中，把数据源作为对象属性，赋值给对象
+        DruidDataSource dataSource = (DruidDataSource) app.getBean("dataSource");
+        JdbcTemplate jdbcTemplate=new JdbcTemplate();
+        jdbcTemplate.setDataSource(dataSource);
+        int num = jdbcTemplate.update("insert into classmate values (?,?,?,?,?,?)", "1002", "Test2", "102", "Address2", "male", "10021002");
+        System.out.println(num);
+    }
+
+    /**
+     * 在spring4.xml中，新建bean
+     *     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+     *         <property name="dataSource" ref="dataSource"/>
+     *     </bean>
+     */
+    @Test
+    public void testjdbcTemplate2(){
+        //一句话搞定
+        JdbcTemplate jdbcTemplate = (JdbcTemplate) app.getBean("jdbcTemplate");
+        /*查询所有*/
+//        List<Map<String, Object>> list = jdbcTemplate.queryForList("select * from classmate");
+        List<Classmate> list = jdbcTemplate.query("select * from classmate", new BeanPropertyRowMapper<Classmate>(Classmate.class));
+        list.forEach(classmate -> System.out.println(classmate));
+        /*条件查询*/
+        Classmate classmate = jdbcTemplate.queryForObject("select * from classmate where id=?", new BeanPropertyRowMapper<Classmate>(Classmate.class), "1");
+        System.out.println(classmate);
+        /*聚合查询*/
+        Long aLong = jdbcTemplate.queryForObject("select count(*) from classmate", Long.class);
+        System.out.println("总数："+aLong);
     }
 }

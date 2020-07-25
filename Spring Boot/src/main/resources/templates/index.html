@@ -8,8 +8,8 @@
 </head>
 <body>
     <h1 align="center" th:text="#{index.tip}">Spring Boot</h1>
-    <p style="display: block" align="center"><a th:href="@{/index.html(l='zh_CN')}">中文</a></p>
-    <p style="display: block" align="center"><a th:align="center" th:href="@{/index.html(l='en_US')}">English</a></p>
+    <span><a th:href="@{/index.html(l='zh_CN')}">中文</a></span>
+    <span style="float: right"><a th:align="center" th:href="@{/index.html(l='en_US')}">English</a></span>
     <hr/>
 </body>
 </html>

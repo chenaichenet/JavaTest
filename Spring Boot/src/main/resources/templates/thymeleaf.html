@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf模板引擎测试</title>
+</head>
+<body>
+<div style="width: 49%;float: left;display: inline">
+    <!--${}-->
+    <span th:text="'消息名：'+${thyme.thymeleafName}+'，消息体：'+${thyme.thymeleafMsg}"></span>
+    <hr/>
+    <span>[[${thyme.thymeleafName}]]：[[${thyme.thymeleafMsg}]]</span>
+    <hr/>
+    <!--*{}-->
+    <span th:object="${thyme}">[[*{thymeleafName}]]：[[*{thymeleafMsg}]]</span>
+    <hr/>
+    <!--#{}-->
+    <span>[[#{thyme.thymeleafName}]]</span>
+    <hr/>
+</div>
+
+<div style="width: 50%;float: left;display: inline">
+    <!--逻辑处理-->
+    <span>逻辑处理</span>
+    <hr/>
+    <span th:if="1+1==2">if：条件成立时显示</span>
+    <span th:unless="1+1 eq 1">unless：条件不成立时显示</span>
+    <hr/>
+    <p th:switch="${level}">
+    <li th:case="1">level-1：A</li>
+    <li th:case="2">level-2：B</li>
+    <li th:case="3">level-3：C</li>
+    <li th:case="*">level-x：X</li>
+    </p>
+    <!--遍历-->
+    <table width="600" cellspacing="5" border="1">
+        <tr>
+            <th>序号</th>
+            <th>消息名</th>
+            <th>消息体</th>
+        </tr>
+        <tr th:each="thyme,st:${list}">
+            <td align="center" th:text="${st.count}"></td>
+            <td align="center" th:text="${thyme.thymeleafName}"></td>
+            <td align="center" th:text="${thyme.thymeleafMsg}"></td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center">另一种方式</td>
+        </tr>
+        <tr th:each="thyme,st:${list}">
+            <td align="center">[[${st.count}]]</td>
+            <td align="center">[[${thyme.thymeleafName}]]</td>
+            <td align="center">[[${thyme.thymeleafMsg}]]</td>
+        </tr>
+    </table>
+</div>
+<div style="width: 49%;float: left;display: inline">
+    <!--此处报错，但是依旧能运行-->
+<!--    <span th:text="${#dates.format(new java.util.Date().getTime,'yyy-MM-dd')}"></span>-->
+    <span>[[${#dates.format(new java.util.Date().getTime(), 'yyyy年MM月dd日HH:mm:ss')}]]</span>
+    <hr/>
+    <input type="text" th:value="${level} eq 2? '值为1':'值不为1'">
+    <span th:remove="tag">这里会被删除</span>
+    <a th:align="center" th:href="@{/index.html(l='en_US')}">English</a>
+</div>
+</body>
+</html>

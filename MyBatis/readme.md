@@ -1,5 +1,5 @@
-# Mybatis框架
-## 文件夹说明
+## Mybatis框架
+### 文件夹说明
 ```text
 main：主文件夹
     java：源文件夹
@@ -8,20 +8,20 @@ main：主文件夹
 test：测试源文件夹
 pom.xml为依赖文件
 ```
-## 笔记
-### 框架概述
+### 笔记
+#### 框架概述
 ```text
 MyBatis是一个基于Java的持久层框架。
 MyBatis是一个SQL映射框架，提供数据库操作能力，增强的JDBC。
 使用MyBatis让开发人员可以专注于SQL的处理，不必关心Connection，Statement，ResulSet的创建和销毁，SQL的执行。
 ```
-### 第一个实例
+#### 第一个实例
 ```text
 1、pom中引入mybatis框架依赖，对应数据库驱动。（针对xml文件不能正确加载的情况，在build中引入扫描插件）
 2、编写dao、domain包文件，分别定义实体类、接口、及其实现类，在dao中，定义mapper映射文件。
 3、在resource中定义mybatis配置文件，以及数据库的配置文件。
 ```
-### 主要类的介绍
+#### 主要类的介绍
 ```text
 1、Resources：mybatis中的一个类，负责读取主配置文件。
 2、SqlSessionFactoryBuilder：创建SqlSessionFactory对象。
@@ -34,7 +34,7 @@ MyBatis是一个SQL映射框架，提供数据库操作能力，增强的JDBC。
     5）其实现类是DefaultSqlSession。
     6）SqlSession对象不是线程安全的，需要在方法内使用，在执行sql语句之前，使用openSession()获取SqlSession对象，在执行完sql语句后需要关闭它。这样能保证它的使用是线程安全的。
 ```
-### MyBatis中的Dao代理
+#### MyBatis中的Dao代理
 ```text
 classmate包中使用的是传统的实现类；student包中使用的是动态代理。
 ```
@@ -46,7 +46,7 @@ classmate包中使用的是传统的实现类；student包中使用的是动态�
     ○ mapper文件中的<select>等标签的id是接口中的方法名。
     ○ dao接口总不要使用重载方法，不要使用同名，不同参的方法。
 ```
-### MyBatis动态SQL
+#### MyBatis动态SQL
 ```text
 <if test="xxx"></if>
 
@@ -66,7 +66,7 @@ classmate包中使用的是传统的实现类；student包中使用的是动态�
     ○ separator：集合成员之间的分隔符。
     ○ item：自定义的表示数组或集合成员的变量。
 ```
-### MyBatis配置文件
+#### MyBatis配置文件
 ```text
 • <settings>：MyBatis中全局的调整设置，它们会改变MyBatis运行时行为，应谨慎设置。
 • <typeAliases>：定义别名，两种方式：使用<typeAlias>，可以定义单个类的别名；使用<package>，可以对一个包中的所有类定义别名。

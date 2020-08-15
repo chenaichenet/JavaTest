@@ -1,5 +1,5 @@
-# Spring框架 
-## 文件夹说明
+## Spring框架 
+### 文件夹说明
 ```text
 main：主文件夹
     java：源文件夹
@@ -14,19 +14,19 @@ main：主文件夹
 test：测试源文件夹
 pom.xml为依赖文件
 ```
-## 笔记
-### Spring框架概述
+### 笔记
+#### Spring框架概述
 ```text
 Spring是分层的JavaSE/EE应用full-stack轻量级开源框架。
 以IoC（Inverse Of Control：反转控制）和AOP（Aspect Oriented Programming：面向切面编程）为内核。
 提供了展现层Spring MVC和持久层Spring JDBC以及业务层事务管理等的众多企业应用技术，还能整合开源众多的第三方框架和类库。
 ```
-### IoC控制反转
+#### IoC控制反转
 ```text
 IoC的实现是通过依赖注入（DI），程序代码不做定位查询，交由框架自动完成。
 DI的实现有两种方式，通过xml文件或使用注解。
 ```
-#### 基于xml的DI
+##### 基于xml的DI
 ```text
 <beans>：根标签，Spring把java对象分为bean。
 <bean>：声明bean，id是对象自定义的唯一名称，class是类的全限定名称（不能是接口，因为Spring是反射机制，必须使用类）
@@ -40,7 +40,7 @@ DI的实现有两种方式，通过xml文件或使用注解。
 ```text
 注入：set注入、构造注入、引用类型注入（byName、byType）。
 ```
-#### 基于注解的DI
+##### 基于注解的DI
 ```text
 对于DI使用注解，将不再需要再Spring配置文件中声明bean实例。需要在Spring配置文件中配置组件扫描器，用于在指定的基本包中扫描注解。
 ```
@@ -60,7 +60,7 @@ DI的实现有两种方式，通过xml文件或使用注解。
 引用类型的注入
 @Autowired
 ```
-### AOP面向切面编程
+#### AOP面向切面编程
 ```text
 面向切面编程，重要的是一种思想，项目中很少使用Spring的AOP实现，因为其较为笨重。可以使用AspectJ来完成AOP。
 ```
@@ -72,8 +72,7 @@ AspectJ的通知类型
     ○ @AfterThrowing：异常通知
     ○ @After：最终通知
 ```
-
-### Spring整合MyBatis
+#### Spring整合MyBatis
 ```text
 略
 ```
